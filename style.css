@@ -1,0 +1,167 @@
+body {
+	text-align: center;
+	font-size: 17px;
+	background-image:url('images/light_wool.png');
+	background-attachment: fixed;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 300;
+}
+
+h1 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 40px;
+}
+
+h2 {
+	margin: 0px;
+	margin-top: 30px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 40px;
+}
+
+h3 {
+	margin-right: 10px;
+	font-family: 'Roboto Slab', serif;	
+	display: inline;
+	font-size: 20px;
+}
+
+h4 {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 900;
+	font-size: 16px;
+	text-decoration: none;
+	display: inline;
+	margin: 10px;
+	margin-left: 0px;
+}
+
+.accord-header {
+	padding: 10px;
+	color: #8E236B;
+	cursor: pointer;
+}
+
+.accord-content {
+	display: none;
+}
+
+.blurb {
+	margin: 25px;	
+	margin-top: 10px;
+}
+
+.smallNote {
+	font-size: 13px;
+	font-weight: 300;
+	display: inline;
+	color: black;
+}
+
+.dateTime {
+	font-size: 13px;
+	font-weight: 300;
+	display: block;
+	color: black;
+}
+
+.centered {
+	/*outline: solid white 4px;*/
+	width: 680px;
+	margin: auto;
+}
+
+.leftJustified {
+	/*outline: solid white 4px;*/
+	width: 680px;
+	text-align: justify;
+	margin: auto;
+}
+
+.welcome {
+	font-size: 22px;
+	padding-top: 120px;
+}
+.right {
+	position: absolute;
+	width: 340px;
+	margin-left: 300px;
+	padding: 20px;
+	float: right;
+	margin-top: 50px;
+	/*outline: solid white 4px;*/
+}
+
+p {
+	margin: 0px;
+}
+
+.left {
+	text-align: left;
+	/*position: absolute;*/
+}
+
+.nav {
+	display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+	/*outline: solid white 4px;*/
+}
+
+.navSide	 {
+	width: 70px;
+	height: 400px;
+	position: fixed;
+	margin-left: 10px;
+	float: left;
+	text-align: center;
+	margin-top: 100px;
+	background-color: white;
+	background-image:url('images/light_wool.png');
+	z-index: 100;
+	/*outline: solid white 4px;*/
+}
+
+.button {
+	float: left;
+	font-size: 15px;
+	margin: 22px;
+	margin-bottom: 10px;
+}
+
+table {
+	font-size: 15px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+td {
+	text-align: left;
+	font-size: 15px;	
+	padding-left: 15px;
+	padding-bottom: 5px;
+}
+
+.tableCategory {
+	font-weight: bolder;
+	font-weight: 500;
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	color: #8E236B;
+}
+
+a :hover {
+	color: gray;
+}
+
+#selected {
+	font-weight: bold;
+}
+
+.image {
+	float: left;
+	margin-right: 15px;
+}

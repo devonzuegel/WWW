@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Paper Trail</title>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="paper-trail.css" />
+  <script src="jquery.js"></script>
+  <script src="Chart.js"></script>
+</head>
+
+<div class="header">
+  <!-- <img src="paper-airplane-icon-128.png" style="width: 50px"> -->
+  <div class="title">
+    <h1>
+      Paper Trail
+    </h1>
+  </div>
+</div>
+
+<!--     <canvas id="canvas" height="450" width="600"></canvas>
+ -->
+<body>
+
+  <div class="wrapper">
+    <div><!--   -->
+      <div class="card"><div class="message">Hello! This site is currently in progress. Check back later for more functionality!</div></div> 
+      <div class="card">This web app is meant to provide information on the political contributions made by companies. The most important voting is done with your wallet, but there isn't enough accessible information about companies' financial influence on politics for people to make informed decisions.</div>
+      <BR>
+    </div>
+
+    <div class="main">
+      <div id="inputs">
+        <form name="inputs">
+        Company <input type="text" name="input_table" id="input_table_id"></input>
+        <input class="button" type="button" value="SUBMIT " onclick="display_company_info();"></input>
+        </form>
+
+        <script type="text/javascript">
+          function display_company_info() {
+        var company_name = document.inputs.input_table_id.value;
+        var company_id;
+
+        $.ajax({
+            url: 'http://transparencydata.com/api/1.0/entities.json?search=' + company_name +'&type=organization&apikey=7059228ecc7540b983aaa75883835c08',
+
+            dataType: 'jsonp',
+            success: function(json) {
+                console.log(json);
+                // UNIX Timestamp when rates were collected is in `json.timestamp`
+                if (json == []) {
+                  document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>"; //JSON.stringify(data);
+                } else if (company_name.length > 0)  {
+                  var data = json;
+                  company_id = data[0].id;
+                  // document.getElementById("data").innerHTML ="<b>" + company_name + "'s id: </b>" + data[0].id;
+                  console.log(company_id);
+                }
+
+                var name;
+                $.ajax({
+                  url: 'http://transparencydata.com/api/1.0/entities/' + company_id + '.json?cycle=2012&apikey=7059228ecc7540b983aaa75883835c08',
+
+                  dataType: 'jsonp',
+                  success: function(json) {
+                // UNIX Timestamp when rates were collected is in `json.timestamp`
+                    if (company_name.length > 0)  {
+                      data = json;
+                      name = data.name;
+                      // document.getElementById("name").innerHTML = "<b>name = " + name;
+                    }
+                  }
+                });
+
+                $.ajax({
+                  url: 'http://transparencydata.com/api/1.0/aggregates/org/' + company_id + '/recipients.json?cycle=2012&apikey=7059228ecc7540b983aaa75883835c08',
+
+                  dataType: 'jsonp',
+                  success: function(json) {
+                // UNIX Timestamp when rates were collected is in `json.timestamp`
+
+                    if (company_name.length > 0)  {
+                      data = json;
+                      document.getElementById("top-recipients").innerHTML = "<h2>" + name +"'s Top 10 Recipients</h2>" + print_r(data, 0);
+                    }
+                  }
+                });
+
+
+              }
+
+            });
+          }
+
+          function print_r(to_print, level) {
+            var output = '';
+
+            if($.isArray(to_print) || typeof(to_print) == 'object') {     
+              output += "<table>"
+              if (level != 0)   output += "<tr><h3>" + to_print.name + "</h3></tr>";
+              for(var i in to_print) {
+                if($.isArray(i) || typeof(i) == 'object') {
+                  print_r(to_print);
+                } else if (i != "id"  && i != "employee_amount"  && i != "name") {
+                  if (level == 0)  output += "<tr><td class='first-head'>" + (parseInt(i) + 1)
+                                              + "</td><td class='first-data'>"
+                                              + print_r(to_print[i], level + 1) + "</td></tr>";
+                  else             output += "<tr><td><b>" + i + "</b></td><td>"
+                                              + print_r(to_print[i], level + 1) + "</td></tr>";
+                }
+              }
+              output += "</table>";
+            }else {
+                output += to_print;
+            }
+            return output;
+          }
+
+        </script>
+      </div>
+      <div id="top-recipients"></div>
+    </div>
+
+  </div>
+</body>
+</html>

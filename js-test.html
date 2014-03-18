@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300' rel='stylesheet' type='text/css'>	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<title>Writing</title>
+</head>
+
+<body>
+	<h1>Writing</h1>
+
+	<div class="accordion">
+		<div class="accord-header">Header 1</div>
+		<div class="accord-content">This is the content for the first header.</div>
+		<div class="accord-header">Header 2</div>
+		<div class="accord-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+	</div>
+
+
+
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".accordion .accord-header").click(function() {
+      if($(this).next("div").is(":visible")){
+        $(this).next("div").slideUp("slow");
+      } else {
+        $(".accordion .accord-content").slideUp("slow");
+        $(this).next("div").slideToggle("slow");
+      }
+    });
+  });
+</script>
+
+
+
+
+</html>
