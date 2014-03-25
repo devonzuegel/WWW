@@ -269,8 +269,8 @@ window.Chart = function(context){
 			segmentStrokeWidth : 2,
 			percentageInnerCutout : 50,
 			animation : true,
-			animationSteps : 100,
-			animationEasing : "easeOutBounce",
+			animationSteps : 40,
+			animationEasing : "easeOutQuart",
 			animateRotate : true,
 			animateScale : false,
 			onAnimationComplete : null

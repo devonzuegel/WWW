@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0086)file:///C:/Users/Devon/Documents/GitHub/WWW/paper_trail/indexx.html?input_table=Google -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Paper Trail</title>
+  
+  <link rel="stylesheet" type="text/css" href="./Paper Trail_files/paper-trail.css">
+  <link rel="stylesheet" type="text/css" href="./Paper Trail_files/calendar_styles.css">
+  <script type="text/javascript" src="./Paper Trail_files/display_company_info.js"></script>
+  <script src="./Paper Trail_files/jquery.js"></script>
+  <script src="./Paper Trail_files/Chart.js"></script>
+</head>
+
+<body id="body"><div class="header"></div>
+
+
+
+  <div class="wrapper">
+
+    <div><!-- Messages -->
+      <div class="card"><div class="message">Hello! This site is currently in progress. Check back later for more functionality!</div></div> 
+      <div class="card">This web app is meant to provide information on the political contributions made by companies. The most important voting is done with your wallet, but there isn't enough accessible information about companies' financial influence on politics for people to make informed decisions.</div>
+      <br>
+    </div>
+
+    <div class="main"> 
+      <div id="inputs" style="text-align:center">
+        <form name="inputs"> <!-- onkeydown="if (event.keyCode == 13) document.getElementById('btn').click()"  -->
+          <input type="text" placeholder="Company name" name="input_table" id="input_table_id">
+          <!-- <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input> -->
+        </form>
+
+        <script type="text/javascript">
+          var elem = document.getElementById("input_table_id");
+          elem.onkeydown=function(e){
+            if(e.keyCode==13){
+              // display_company_info();
+            }
+          }        
+        </script>
+      </div>
+      <div id="top-recipients"></div>
+
+      <canvas id="canvas" height="562" width="562" style="width: 450px; height: 450px;"></canvas>
+      <script>
+        var doughnutData = [  { value: 30,    color:"#F7464A"},
+                              { value : 50,   color : "#46BFBD"},
+                              { value : 100,  color : "#FDB45C"},
+                              { value : 40,   color : "#949FB1"},
+                              { value : 120,  color : "#4D5360"}  ];   
+
+        var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
+      
+      </script>
+
+    </div>
+
+  </div>
+
+</body></html>

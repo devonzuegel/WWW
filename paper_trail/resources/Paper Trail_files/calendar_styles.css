@@ -1,0 +1,66 @@
+body {
+	background: url(light_wool.png);
+}
+
+.calendar {
+	background-color: #EFD;
+	border: 1px solid black;
+	padding: 20px;
+	font-size: 18px;
+	float: left;
+	margin: 10px;
+}
+
+td {
+	padding: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	vertical-align: center;
+	text-align:center;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+table {
+	border-spacing: 8px;
+}
+
+.not_this_month { color: #ccc; }
+
+#infobox, #div2 {
+	background-color: #FED;
+	/*float: left;*/
+}
+
+h3 {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-style: bold;
+}
+
+.to_last_month, .to_next_month, .to_today {
+	font-size: 14px;
+}
+
+.to_last_month {
+	float: left;
+}
+
+.to_next_month {
+	float: right;
+}
+
+.to_today {
+	text-align: center;
+}
+
+th {
+	font-style: bold;
+	font-size: 16px;
+}
+
+.this_date {
+	font-weight: bold;
+	background-color: #eee;
+}

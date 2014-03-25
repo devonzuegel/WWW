@@ -5,121 +5,79 @@
 <head>
   <title>Paper Trail</title>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="paper-trail.css" />
-  <script src="jquery.js"></script>
-  <script src="Chart.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
+  <link rel="stylesheet" type="text/css" href="styles/calendar_styles.css" />
+  <script type="text/javascript" src="javascripts/display_company_info.js"></script>
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/Chart.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
 </head>
 
-<div class="header">
-  <!-- <img src="paper-airplane-icon-128.png" style="width: 50px"> -->
-  <div class="title">
-    <h1>
-      Paper Trail
-    </h1>
-  </div>
-</div>
+<div class= "header"></div>
 
-<!--     <canvas id="canvas" height="450" width="600"></canvas>
- -->
-<body>
+<body id="body">
 
   <div class="wrapper">
-    <div><!--   -->
+
+    <div><!-- Messages -->
       <div class="card"><div class="message">Hello! This site is currently in progress. Check back later for more functionality!</div></div> 
       <div class="card">This web app is meant to provide information on the political contributions made by companies. The most important voting is done with your wallet, but there isn't enough accessible information about companies' financial influence on politics for people to make informed decisions.</div>
-      <BR>
     </div>
 
-    <div class="main">
-      <div id="inputs">
+    <div class="main"> 
+      <div id="inputs" style="text-align:center">
         <form name="inputs">
-        Company <input type="text" name="input_table" id="input_table_id"></input>
-        <input class="button" type="button" value="SUBMIT " onclick="display_company_info();"></input>
+          <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
+          <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
         </form>
 
-        <script type="text/javascript">
-          function display_company_info() {
-        var company_name = document.inputs.input_table_id.value;
-        var company_id;
-
-        $.ajax({
-            url: 'http://transparencydata.com/api/1.0/entities.json?search=' + company_name +'&type=organization&apikey=7059228ecc7540b983aaa75883835c08',
-
-            dataType: 'jsonp',
-            success: function(json) {
-                console.log(json);
-                // UNIX Timestamp when rates were collected is in `json.timestamp`
-                if (json == []) {
-                  document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>"; //JSON.stringify(data);
-                } else if (company_name.length > 0)  {
-                  var data = json;
-                  company_id = data[0].id;
-                  // document.getElementById("data").innerHTML ="<b>" + company_name + "'s id: </b>" + data[0].id;
-                  console.log(company_id);
-                }
-
-                var name;
-                $.ajax({
-                  url: 'http://transparencydata.com/api/1.0/entities/' + company_id + '.json?cycle=2012&apikey=7059228ecc7540b983aaa75883835c08',
-
-                  dataType: 'jsonp',
-                  success: function(json) {
-                // UNIX Timestamp when rates were collected is in `json.timestamp`
-                    if (company_name.length > 0)  {
-                      data = json;
-                      name = data.name;
-                      // document.getElementById("name").innerHTML = "<b>name = " + name;
-                    }
-                  }
-                });
-
-                $.ajax({
-                  url: 'http://transparencydata.com/api/1.0/aggregates/org/' + company_id + '/recipients.json?cycle=2012&apikey=7059228ecc7540b983aaa75883835c08',
-
-                  dataType: 'jsonp',
-                  success: function(json) {
-                // UNIX Timestamp when rates were collected is in `json.timestamp`
-
-                    if (company_name.length > 0)  {
-                      data = json;
-                      document.getElementById("top-recipients").innerHTML = "<h2>" + name +"'s Top 10 Recipients</h2>" + print_r(data, 0);
-                    }
-                  }
-                });
-
-
-              }
-
-            });
-          }
-
-          function print_r(to_print, level) {
-            var output = '';
-
-            if($.isArray(to_print) || typeof(to_print) == 'object') {     
-              output += "<table>"
-              if (level != 0)   output += "<tr><h3>" + to_print.name + "</h3></tr>";
-              for(var i in to_print) {
-                if($.isArray(i) || typeof(i) == 'object') {
-                  print_r(to_print);
-                } else if (i != "id"  && i != "employee_amount"  && i != "name") {
-                  if (level == 0)  output += "<tr><td class='first-head'>" + (parseInt(i) + 1)
-                                              + "</td><td class='first-data'>"
-                                              + print_r(to_print[i], level + 1) + "</td></tr>";
-                  else             output += "<tr><td><b>" + i + "</b></td><td>"
-                                              + print_r(to_print[i], level + 1) + "</td></tr>";
-                }
-              }
-              output += "</table>";
-            }else {
-                output += to_print;
-            }
-            return output;
-          }
-
-        </script>
       </div>
+      <script type="text/javascript">
+        var elem = document.getElementById("input_table_id");
+        elem.onkeydown=function(e){
+          if(e.keyCode==13){
+            alert("hi!");
+            document.getElementById("btn").click();
+          }
+        }        
+      </script>
+
       <div id="top-recipients"></div>
+
+      <div class="card" id="graphs">
+        <h3>Sample graphs:</h3>
+        <canvas class="canvas" id="canvas1" height="210" width="210"></canvas>
+        <canvas class="canvas" id="canvas2" height="210" width="210"></canvas>
+        <canvas class="canvas" id="canvas3" height="210" width="210"></canvas>
+      </div>
+
+      <script>
+        var data1 = [  { value: 30,    color:"#F7464A"},
+                              { value : 50,   color : "#46BFBD"},
+                              { value : 100,  color : "#FDB45C"},
+                              { value : 40,   color : "#949FB1"},
+                              { value : 120,  color : "#4D5360"}  ];   
+
+        var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(data1);
+
+        var data2 = [  { value: 100,    color:"#F7464A"},
+                              { value : 40,   color : "#46BFBD"},
+                              { value : 20,  color : "#FDB45C"},
+                              { value : 120,   color : "#949FB1"},
+                              { value : 20,  color : "#4D5360"}  ];   
+
+        var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(data2);
+
+        var data3 = [  { value: 30,    color:"#F7464A"},
+                              { value : 80,   color : "#46BFBD"},
+                              { value : 120,  color : "#FDB45C"},
+                              { value : 40,   color : "#949FB1"},
+                              { value : 70,  color : "#4D5360"}  ];   
+
+        var myDoughnut = new Chart(document.getElementById("canvas3").getContext("2d")).Doughnut(data3);
+      
+      </script>
+
     </div>
 
   </div>

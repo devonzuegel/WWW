@@ -1,0 +1,137 @@
+#body {
+	background-image: url("../resources/light_wool.png");
+	font-family: Calibri;
+	font-weight: lighter;
+}
+
+.header {
+	/*background-color: #09c;*/
+	/*background-color: #f24;*/
+	background-color: white;
+	border-bottom: #ddd solid 1px;
+
+	margin-top: -10px;
+	margin-left: -20px;
+	width: 110%;
+
+	background-image: url("../resources/header.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 70px;
+	/*
+	color: #009;
+	font-size: 15px;
+
+	font-family: libby;
+ 	font-weight: bold;
+	font-style: bold;
+	line-height: 110%;
+	vertical-align: middle;
+	overflow: auto;
+
+	CA BND web
+	ChunkFive
+	Libby
+	Mir
+	*/
+}
+
+.title {
+	display: block;
+	text-align: center;
+	margin: auto;
+}
+
+.main {
+	display: block;
+	margin: 10px;
+}
+
+.card {
+	background-color: white;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #ddd;
+	/*border-radius:5px;*/
+	display: block;
+}
+
+h1 {
+	display: inline;
+}
+
+.button {
+	text-align: center;
+	/*background-color: #444;*/
+	/*border-radius:13px;*/
+	line-height: 100%;
+	/*background-image: url("tweed.png");*/
+
+	background-image: url("../resources/search-24px.png");
+	background-color: rgba(0,0,0,0);
+	background-repeat: no-repeat;
+	border: none;
+	width: 21px;
+	height: 21px;
+	margin: 5px;
+	/*color: white;*/
+}
+
+#input_table_id {
+	background-color: white;
+	border: 1px #ddd solid;
+
+	/*font-size: 14px;*/
+	line-height: 200%;
+	padding-left: 10px;
+
+	min-height: 25px;
+	min-width: 240px;
+}
+
+h3 {
+}
+
+#inputs {
+}
+
+.wrapper {
+	display: block;
+	padding: 10px;
+	margin: auto;
+	max-width: 800px;
+}
+
+table {
+	border-spacing: 0px;
+}
+
+.first-head {
+	background-color: gray;
+	color: white;
+	border-top: #eee 5px solid;
+	line-height: 100%;
+	height: 100%;
+
+}
+
+.message {
+	font-size: 20px;
+	/*color: #c00;*/
+	font-weight: bold;
+}
+
+.first-data {
+	background-color: white;
+	border-top: #eee 5px solid;
+	/*border-right: 0px;*/
+	line-height: 100%;
+	height: 100%;
+
+}
+
+td {
+	background-color: white;
+	/*border: #eee 1px solid;*/
+	padding: 4px;
+}
