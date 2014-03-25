@@ -9,7 +9,6 @@ function display_company_info() {
     dataType: 'jsonp',
     success: function(json) {
       console.log(json);
-        // UNIX Timestamp when rates were collected is in `json.timestamp`
         if (json == []) {
           document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>"; //JSON.stringify(data);
         } else if (company_name.length > 0)  {
@@ -25,7 +24,6 @@ function display_company_info() {
 
           dataType: 'jsonp',
           success: function(json) {
-            // UNIX Timestamp when rates were collected is in `json.timestamp`
             if (company_name.length > 0)  {
               data = json;
               name = data.name;
@@ -39,8 +37,6 @@ function display_company_info() {
 
           dataType: 'jsonp',
           success: function(json) {
-          // UNIX Timestamp when rates were collected is in `json.timestamp`
-
           if (company_name.length > 0)  {
             data = json;
             document.getElementById("top-recipients").innerHTML = "<h2>" + name +"'s Top 10 Recipients</h2>" + print_r(data, 0);
@@ -59,7 +55,7 @@ function print_r(to_print, level) {
 
   if($.isArray(to_print) || typeof(to_print) == 'object') {     
     output += "<table>"
-    if (level != 0)   output += "<tr><h3>" + to_print.name + "</h3></tr>";
+    if (level != 0)   output += "<tr><h3>" + to_print.name + "</h3></ tr>";
     for(var i in to_print) {
       if($.isArray(i) || typeof(i) == 'object') {
         print_r(to_print);
