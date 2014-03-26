@@ -23,11 +23,11 @@
       <div class="card">This web app is meant to provide information on the political contributions made by companies. The most important voting is done with your wallet, but there isn't enough accessible information about companies' financial influence on politics for people to make informed decisions.</div>
     </div>
 
-    <div class="main"> 
+    <div id="main"> 
       <div id="inputs" style="text-align:center">
         <form name="inputs">
           <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
-          <input class="button" type="button" id="btn" value="" onclick="top_10_recipnts();"></input>
+          <input class="button" type="button" id="btn" value="" onclick="party_breakdown();"></input>
         </form>
 
       </div>
@@ -39,13 +39,14 @@
           }
         }        
       </script>
-
+<!-- 
       <div class="card" id="graphs">
         <h3>Sample graphs:</h3>
         <canvas class="canvas" id="canvas1" height="210" width="210"></canvas>
         <canvas class="canvas" id="canvas2" height="210" width="210"></canvas>
         <canvas class="canvas" id="canvas3" height="210" width="210"></canvas>
       </div>
+-->
 
       <div id="top-recipients"></div>
 

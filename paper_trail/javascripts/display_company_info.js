@@ -1,14 +1,16 @@
 function party_breakdown() {
 
+  // removes any remaining canvases before adding new ones
+  $( ".canvas" ).remove();
+
   var company_name = document.inputs.input_table_id.value;
-  // alert("in display_company_info()! --- " + company_name);
   var company_id; var name;
 
   $.ajax({
     url: 'http://transparencydata.com/api/1.0/entities.json?search=' + company_name +'&type=organization&apikey=7059228ecc7540b983aaa75883835c08',
 
     dataType: 'jsonp', success: function(json) {
-      console.log(json);
+      // console.log(json);
         if (json == []) {
           document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>"; //JSON.stringify(data);
         } else if (company_name.length > 0)  {
@@ -26,10 +28,60 @@ function party_breakdown() {
 
 }
 
+function party_breakdown_graph(company_id, company_name, name) {
+    $.ajax({
+      url: 'http://transparencydata.com/api/1.0/aggregates/org/' + company_id + '/recipients/party_breakdown.json?apikey=7059228ecc7540b983aaa75883835c08',
+      // FOR INDIVIDUAL:   'http://transparencydata.com/api/1.0/aggregates/indiv/' + company_id + '/recipients/party_breakdown.json?apikey=7059228ecc7540b983aaa75883835c08',
+      dataType: 'jsonp', success: function(json) {
+        console.log('http://transparencydata.com/api/1.0/aggregates/org/' + company_id + '/recipients/party_breakdown.json?apikey=7059228ecc7540b983aaa75883835c08');
+        if (company_name.length > 0)  {
+          api_data = json;
+          add_doughnut(format_for_doughtnut(api_data));
+        }
+    }
+  });
+}
+
+function add_doughnut(formatted_data) {
+  document.getElementById("main").innerHTML += "<canvas class=\"canvas\" id=\"canvas\" height=\"210\" width=\"210\"></canvas>";
+  var doughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(formatted_data);
+}
+
+function format_for_doughtnut(api_data) {
+  var data = [];
+  for (var party in api_data) {
+    var hash = {};
+    hash["color"] = color_for(party);
+    hash["value"] = parseInt(api_data[party][1]);
+    data.push(hash);
+  }
+  return data;
+}
+
+// Returns a random integer between min and max
+// Using Math.round() will give you a non-uniform distribution!
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function color_for(party) {
+  // if major party, get its color
+  if (party == "Republicans")                      return "#F7464A";
+  if (party == "Democrats")                        return "#46BFBD";
+  if (party == "Other" || party == "Libertarian")  return "#FDB45C";
+
+  // get random color
+  var rand = getRandomInt(1,2);
+  switch (rand) {
+    case 1:   return "#949FB1";
+    case 2:   return "#4D5360";
+    default:  return "#FDB45C";
+  }
+}
+
 function top_10_recipnts() {
 
   var company_name = document.inputs.input_table_id.value;
-  // alert("in display_company_info()! --- " + company_name);
   var company_id; var name;
 
   $.ajax({
@@ -38,12 +90,11 @@ function top_10_recipnts() {
     dataType: 'jsonp', success: function(json) {
       console.log(json);
         if (json == []) {
-          document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>"; //JSON.stringify(data);
+          document.getElementById("top-recipients").innerHTML = "<h2>Can't find that company</h2>";
         } else if (company_name.length > 0)  {
           var data = json;
           company_id = data[0].id;
           name = data[0].name;
-          // document.getElementById("data").innerHTML ="<b>" + company_name + "'s id: </b>" + data[0].id;
         }
 
         print_top_recipnts(company_id, company_name, name);
@@ -76,33 +127,31 @@ function print_r(to_print, level) {
   return output;
 }
 
-function print_top_recipnts(company_id, company_name, name) { /*, name*/
+function print_top_recipnts(company_id, company_name, name) {
   $.ajax({
       url: 'http://transparencydata.com/api/1.0/aggregates/org/' + company_id + '/recipients.json?cycle=2012&apikey=7059228ecc7540b983aaa75883835c08',
 
       dataType: 'jsonp', success: function(json) {
-      if (company_name.length > 0)  {
-        data = json;
-        document.getElementById("top-recipients").innerHTML = "<h2>" + name +"'s Top Recipients</h2>" + print_r(data, 0);
-      }
+        if (company_name.length > 0)  {
+          data = json;
+          document.getElementById("top-recipients").innerHTML = "<h2>" + name +"'s Top Recipients</h2>" + print_r(data, 0);
+        }
     }
   });
 }
 
 function toggle_class_visib(cl){
-   var els = document.getElementsByClassName(cl);
-   for(var i=0; i<els.length; ++i){
-      var s = els[i].style;
+   var elems = document.getElementsByClassName(cl);
+   for(var i=0; i < elems.length; ++i){
+      var s = elems[i].style;
       s.display = s.display==='none' ? 'block' : 'none';
    };
 }
 
 function toggle_id_visib(id) {
    var e = document.getElementById(id);
-   if(e.style.display == 'block')
-      e.style.display = 'none';
-   else
-      e.style.display = 'block';
+   if(e.style.display == 'block')  e.style.display = 'none';
+   else                            e.style.display = 'block';
 }
 
 function sample_graphs() {
