@@ -6,7 +6,6 @@
   <title>Paper Trail</title>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
-  <link rel="stylesheet" type="text/css" href="styles/calendar_styles.css" />
   <script type="text/javascript" src="javascripts/display_company_info.js"></script>
   <script src="javascripts/jquery.js"></script>
   <script src="javascripts/Chart.js"></script>
@@ -28,7 +27,7 @@
       <div id="inputs" style="text-align:center">
         <form name="inputs">
           <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
-          <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
+          <input class="button" type="button" id="btn" value="" onclick="top_10_recipnts();"></input>
         </form>
 
       </div>
@@ -41,8 +40,6 @@
         }        
       </script>
 
-      <div id="top-recipients"></div>
-
       <div class="card" id="graphs">
         <h3>Sample graphs:</h3>
         <canvas class="canvas" id="canvas1" height="210" width="210"></canvas>
@@ -50,32 +47,7 @@
         <canvas class="canvas" id="canvas3" height="210" width="210"></canvas>
       </div>
 
-      <script>
-        var data1 = [  { value: 30,    color:"#F7464A"},
-                              { value : 50,   color : "#46BFBD"},
-                              { value : 100,  color : "#FDB45C"},
-                              { value : 40,   color : "#949FB1"},
-                              { value : 120,  color : "#4D5360"}  ];   
-
-        var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(data1);
-
-        var data2 = [  { value: 100,    color:"#F7464A"},
-                              { value : 40,   color : "#46BFBD"},
-                              { value : 20,  color : "#FDB45C"},
-                              { value : 120,   color : "#949FB1"},
-                              { value : 20,  color : "#4D5360"}  ];   
-
-        var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(data2);
-
-        var data3 = [  { value: 30,    color:"#F7464A"},
-                              { value : 80,   color : "#46BFBD"},
-                              { value : 120,  color : "#FDB45C"},
-                              { value : 40,   color : "#949FB1"},
-                              { value : 70,  color : "#4D5360"}  ];   
-
-        var myDoughnut = new Chart(document.getElementById("canvas3").getContext("2d")).Doughnut(data3);
-      
-      </script>
+      <div id="top-recipients"></div>
 
     </div>
 
