@@ -1,20 +1,21 @@
 function display_company_info() {
 
-
   var name = document.inputs.input_table_id.value;
   var company_id; var company_name;
 
   $.ajax({
     url: entity_query(name), dataType: 'jsonp', success: function(json) {
+      console.log(entity_query(name));
       if (json == []) {
         document.getElementById("company_info").innerHTML = "<h2>Can't find that company</h2>";
-      } else if (name.length > 0)  {
-        // $( ".canvas" ).remove(); // removes any remaining canvases before adding new ones
+      } else if (name.length > 0)  { // this 2nd check may not be necessary?
+        make_visible("company_info");
         company_id = json[0].id;
         company_name = json[0].name;
       }
       company_header(company_name, name);
       party_breakdown_graph(company_id, company_name);
+      recipient_pacs_card(company_id, company_name);
     }
 
   });
@@ -25,22 +26,47 @@ function company_header(company_name, name) {
   name_div.innerHTML = "<b style='margin:20px'>" + company_name + "</b>";
 
   var logo_div = document.getElementById("logo_div");
-  logo_div.innerHTML = "<img style='' src='http://data.scrapelogo.com/" + name + ".com/logo'>";
+  logo_div.innerHTML = "<img style='width:100%' src='http://data.scrapelogo.com/" + name + ".com/logo'>";
         //assumes that what the user inputed is the site's domain
 }
 
 function party_breakdown_graph(company_id,company_name) {
-    $.ajax({
-      url: party_breakdown_query(company_id), dataType: 'jsonp', success: function(json) {
-        if (company_name.length > 0)  {
-          var party_breakdown_div = document.getElementById("party_breakdown");
-          clear_and_make_visible("party_breakdown");
+  $.ajax({
+    url: party_breakdown_query(company_id), dataType: 'jsonp', success: function(json) {
+      if (company_name.length > 0)  {
+        var party_breakdown_div = document.getElementById("party_breakdown");
+        clear("party_breakdown");
 
-          if (isEmpty(json))  party_breakdown_div.innerHTML += "Sorry! We can't find data about how much " + company_name + " gave to each political party."
-          else                add_doughnut(party_breakdown_format_for_doughtnut(json), "party_breakdown", "Party breakdown");
-        }
+        if (isEmpty(json))  party_breakdown_div.innerHTML += "Sorry! We can't find data about how much <b>" + company_name + "</b> gave to each political party."
+        else                add_doughnut(party_breakdown_format_data(json), "party_breakdown", "Party breakdown");
+      }
     }
   });
+}
+
+function recipient_pacs_card(company_id, company_name) {
+  $.ajax({
+    url: pac_recipients_query(company_id), dataType: 'jsonp', success: function(json) {
+      if (company_name.length > 0)  {
+        var pac_div = document.getElementById("pac_div");
+        clear("pac_div");
+
+        if (isEmpty(json))  pac_div.innerHTML = "Sorry! We can't find data about how much <b>" + company_name + "</b> donated to individual PACs."
+        else                list_pac_info(pac_div, json);
+      }
+    }
+  }); 
+}
+
+function list_pac_info(pac_div, json) {
+
+  var output = '<h3>Pac Contributions</h3><table>';
+  for (var i = 0; i < json.length; i++)   {
+    output += '<tr><td>' + color_block("#eee", i) + "</td><td>" + json[i].name + "</td></tr>";
+  }
+  output += '</table>';
+
+  pac_div.innerHTML += output;
 }
 
 { /* Helper fns specific to party_breakdonwn_graph() */
@@ -53,7 +79,7 @@ function party_breakdown_graph(company_id,company_name) {
     var doughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(formatted_data);
   }
 
-  function party_breakdown_format_for_doughtnut(api_data) {
+  function party_breakdown_format_data(api_data) {
     var data = [];
     for (var party in api_data) {
       var hash = {};
@@ -65,10 +91,12 @@ function party_breakdown_graph(company_id,company_name) {
     return data;
   }
 
-  function color_block(color_hex) {
-    return '<div class="color_block" style="width: 15px; height:15px; background-color:' + color_hex + '"></div>';
+  function color_block(color_hex, content) {
+    if (content == undefined)   content = "";
+    return '<div class="color_block" style="width: 10px; height:10px; background-color:' + color_hex + '">' + content + '</div>';
   }
 
+  // create legend & legend table for a doughnut's formatted_data
   function legend(formatted_data, title) {
     // calcuate total $s spent
     var total = 0;
@@ -110,14 +138,26 @@ function party_breakdown_graph(company_id,company_name) {
   }
 }
 
-
 { /* Misc helper functions */
 
-  function clear_and_make_visible(div_id) {
-    var div = document.getElementById(div_id);
-    div.innerHTML = "";
-    div.style.display = 'inline-block';
+
+  function clear_and_make_visible() {
+
   }
+
+  function clear(div_id) {
+    document.getElementById(div_id).innerHTML = "";
+  }
+
+  function make_visible(div_id) {
+    document.getElementById(div_id).style.display = 'inline-block';
+  }
+
+  // function clear_and_make_visible(div_id) {
+  //   var div = document.getElementById(div_id);
+  //   div.innerHTML = "";
+  //   div.style.display = 'inline-block';
+  // }
 
   function isEmpty(obj) {
       return Object.keys(obj).length === 0;

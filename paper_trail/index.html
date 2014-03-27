@@ -41,15 +41,24 @@
         }        
       </script>
 
-      <div id="company_info">
-        <div class="company_hdr" id="company_hdr"></div>
+      <table id="company_info">
 
-        <div class='small_card-R' id="logo_div" style='text-align:center'></div>
-        <div class="small_card-L" id="party_breakdown"></div>
-        <div id="top-recipients"></div>
+        <tr><div class="company_hdr" id="company_hdr"></div></tr>
+        
+        <tr>
+          <td valign="top"> <!-- LEFT COLUMN -->
+            <div class="small_card-L" id="party_breakdown"></div>
+            <div id="top-recipients"></div>
+          </td>
+
+          <td valign="top"> <!-- RIGHT COLUMN -->
+            <div class='small_card-R' id="logo_div" style='text-align:center'></div>
+            <div class='small_card-R' id="pac_div"><h3>Pac Contributions</h3></div>
+          </td>
+        </tr>
       </div>
 
-    </div>
+    </table>
 
   </div>
 </body>
