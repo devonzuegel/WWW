@@ -7,9 +7,10 @@
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
   <script type="text/javascript" src="javascripts/display_company_info.js"></script>
+  <script type="text/javascript" src="javascripts/database_query_fns.js"></script>
   <script src="javascripts/jquery.js"></script>
   <script src="javascripts/Chart.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
 </head>
 
 <div class= "header"></div>
@@ -27,7 +28,7 @@
       <div id="inputs" style="text-align:center">
         <form name="inputs">
           <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
-          <input class="button" type="button" id="btn" value="" onclick="party_breakdown();"></input>
+          <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
         </form>
 
       </div>
@@ -40,11 +41,12 @@
         }        
       </script>
 
-      <div class="small_card" id="party_breakdown"></div>
-      <!-- <div class="small_card" id="test">Hello!</div> -->
-
-
-      <div id="top-recipients"></div>
+      <div id="company_info">
+        <div class="company_hdr" id="company_hdr"></div>
+        <div class="small_card" id="party_breakdown"></div>
+        <!-- <div class="small_card" id="test">Hello!</div> -->
+        <div id="top-recipients"></div>
+      </div>
 
     </div>
 
