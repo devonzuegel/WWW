@@ -46,7 +46,7 @@
 	display: block;
 }
 
-.card, .small_card {
+.card, .small_card-R, .small_card-L {
 	background-color: white;
 	padding: 15px;
 	margin: 10px;
@@ -54,9 +54,13 @@
 	display: block;
 }
 
-.small_card { 
+.small_card-R, .small_card-L { 
 	display: inline-block;
+	width:348px;
 }
+
+.small_card-R { float: right; }
+.small_card-L { float: left;  }
 
 .company_hdr {
 	text-align: center;

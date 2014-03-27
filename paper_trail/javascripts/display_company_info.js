@@ -13,16 +13,20 @@ function display_company_info() {
         company_id = json[0].id;
         company_name = json[0].name;
       }
-      company_header(company_name);
+      company_header(company_name, name);
       party_breakdown_graph(company_id, company_name);
     }
 
   });
 }
 
-function company_header(company_name) {
-  var div = document.getElementById("company_hdr");
-  div.innerHTML = "<b>" + company_name + "</b>";
+function company_header(company_name, name) {
+  var name_div = document.getElementById("company_hdr");
+  name_div.innerHTML = "<b style='margin:20px'>" + company_name + "</b>";
+
+  var logo_div = document.getElementById("logo_div");
+  logo_div.innerHTML = "<img style='' src='http://data.scrapelogo.com/" + name + ".com/logo'>";
+        //assumes that what the user inputed is the site's domain
 }
 
 function party_breakdown_graph(company_id,company_name) {
@@ -44,11 +48,11 @@ function party_breakdown_graph(company_id,company_name) {
   function add_doughnut(formatted_data, div_id, title) {
     var div = document.getElementById(div_id);
     // add canvas for doughnut ...     and    ... add legend
-    div.innerHTML += canvas("canvas", 210, 210) + legend(formatted_data, title);
+    div.innerHTML += canvas("canvas", 200, 200) + legend(formatted_data, title);
     // add doughnut
     var doughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(formatted_data);
   }
-  
+
   function party_breakdown_format_for_doughtnut(api_data) {
     var data = [];
     for (var party in api_data) {
@@ -106,7 +110,9 @@ function party_breakdown_graph(company_id,company_name) {
   }
 }
 
-{ /* Helper functions that set and/or check for visibility & emptiness */
+
+{ /* Misc helper functions */
+
   function clear_and_make_visible(div_id) {
     var div = document.getElementById(div_id);
     div.innerHTML = "";
@@ -130,9 +136,6 @@ function party_breakdown_graph(company_id,company_name) {
      if(e.style.display == 'block')  e.style.display = 'none';
      else                            e.style.display = 'block';
   }
-}
-
-{ /* Misc helper functions */
 
   // Returns a random integer between min and max
   function getRandomInt(min, max) {
