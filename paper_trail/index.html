@@ -20,7 +20,7 @@
     <script src="javascripts/jquery.notify.js" type="text/javascript"></script>
   </head>
 
-<div id="content" style="display:none"> <!-- TODO remove "display:none" -->
+<div id="content"> <!-- TODO remove "display:none" -->
   <script type="text/javascript">
     function create( template, vars, opts ) { 
       return $container.notify("create", template, vars, opts);   
@@ -33,7 +33,7 @@
   </script>
 
   <div id="container" style="display:none"><div id="sticky">
-    <a class="ui-notify-close ui-notify-cross" href="#">X</a>    <h1>#{title}</h1>    <p>#{text}</p>
+    <a class="ui-notify-close ui-notify-cross" href="#">x</a>    <h1>#{title}</h1>    <p>#{text}</p>
   </div></div>
 </div>
 
