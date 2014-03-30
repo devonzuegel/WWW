@@ -1,65 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>Paper Trail</title>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
-  <script type="text/javascript" src="javascripts/display_company_info.js"></script>
-  <script type="text/javascript" src="javascripts/database_query_fns.js"></script>
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/Chart.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
-</head>
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Paper Trail</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
+    <script type="text/javascript" src="javascripts/display_company_info.js"></script>
+    <script type="text/javascript" src="javascripts/database_query_fns.js"></script>
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/Chart.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
 
-<div class= "header"></div>
+    <!-- <link type="text/css" rel="stylesheet" href="http://www.erichynds.com/examples/style.css" /> -->
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="styles/ui.notify.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.notify.js" type="text/javascript"></script>
+  </head>
+
+<div id="content" style="display:none"> <!-- TODO remove "display:none" -->
+  <script type="text/javascript">
+    function create( template, vars, opts ) { 
+      return $container.notify("create", template, vars, opts);   
+    }
+    
+    $(function(){  // creates sticky notification on page load
+      $container = $("#container").notify();
+      create("sticky", { title:'Hello there!', text:'This site is currently in progress. Please email me at <b>devonz@stanford.edu</b> if you have any questions, comments, or suggestions.'},{ expires:false });
+    });
+  </script>
+
+  <div id="container" style="display:none"><div id="sticky">
+    <a class="ui-notify-close ui-notify-cross" href="#">X</a>    <h1>#{title}</h1>    <p>#{text}</p>
+  </div></div>
+</div>
+
+<div id="hdr">
+  <a href="about.html" id="about-label" class="nav-btn"></a>
+  <a href="index.html" id="search-label" class="nav-btn" style="margin-right:0px"></a>
+</div>
 
 <body id="body">
 
   <div class="wrapper">
 
-    <div><!-- Messages -->
-      <div class="card"><div class="message">Hello! This site is currently in progress. Check back later for more functionality!</div></div> 
-      <div class="card">This web app is meant to provide information on the political contributions made by companies. The most important voting is done with your wallet, but there isn't enough accessible information about companies' financial influence on politics for people to make informed decisions.</div>
-    </div>
-
-    <div id="main"> 
-      <div id="inputs" style="text-align:center">
-        <form name="inputs">
-          <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
-          <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
-        </form>
-
-      </div>
+    <div id="inputs" style="text-align:center"><form name="inputs">
+      <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
+      <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
+      
       <script type="text/javascript">
         var elem = document.getElementById("input_table_id");
         elem.onkeydown=function(e){
-          if(e.keyCode==13){
-            document.getElementById("btn").click();
+          if(e.keyCode==13) {
+            display_company_info();
+            // document.getElementById("btn").click();
           }
         }        
       </script>
+    </form></div>
 
-      <table id="company_info">
 
-        <tr><div class="company_hdr" id="company_hdr"></div></tr>
-        
-        <tr>
-          <td valign="top"> <!-- LEFT COLUMN -->
-            <div class="small_card-L" id="party_breakdown"></div>
-            <div id="top-recipients"></div>
-          </td>
+    <table id="company_info">
 
-          <td valign="top"> <!-- RIGHT COLUMN -->
-            <div class='small_card-R' id="logo_div" style='text-align:center'></div>
-            <div class='small_card-R' id="pac_div"><h3>Pac Contributions</h3></div>
-          </td>
-        </tr>
-      </div>
+      <tr><div class="company_hdr" id="company_hdr"></div></tr>
+      
+      <tr>
+        <td valign="top"> <!-- LEFT COLUMN -->
+          <div class="small_card-L" id="party_breakdown"></div>
+          <div id="top-recipients"></div>
+        </td>
 
-    </table>
+        <td valign="top"> <!-- RIGHT COLUMN -->
+          <div class='small_card-R' id="logo_div" style='text-align:center'></div>
+          <div class='small_card-R' id="pac_div"></div>
+        </td>
+      </tr>
+    </div>
 
-  </div>
+  </table>
+
 </body>
 </html>

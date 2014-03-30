@@ -1,5 +1,7 @@
 function display_company_info() {
 
+  document.getElementById("inputs").style.marginTop = "10px";
+
   var name = document.inputs.input_table_id.value;
   var company_id; var company_name;
 
@@ -23,14 +25,14 @@ function display_company_info() {
 
 function company_header(company_name, name) {
   var name_div = document.getElementById("company_hdr");
-  name_div.innerHTML = "<b style='margin:20px'>" + company_name + "</b>";
+  name_div.innerHTML = "<b>" + company_name + "</b>";
 
   var logo_div = document.getElementById("logo_div");
   logo_div.innerHTML = "<img style='width:100%' src='http://data.scrapelogo.com/" + name + ".com/logo'>";
         //assumes that what the user inputed is the site's domain
 }
 
-function party_breakdown_graph(company_id,company_name) {
+function party_breakdown_graph(company_id, company_name) {
   $.ajax({
     url: party_breakdown_query(company_id), dataType: 'jsonp', success: function(json) {
       if (company_name.length > 0)  {
@@ -62,7 +64,7 @@ function list_pac_info(pac_div, json) {
 
   var output = '<h3>Pac Contributions</h3><table>';
   for (var i = 0; i < json.length; i++)   {
-    output += '<tr><td>' + color_block("#eee", i) + "</td><td>" + json[i].name + "</td></tr>";
+    output += '<tr><td>' + color_block("#eee", i) + "</td><td>" + json[i].name + " <div class='num'>($" + json[i].total_amount + ")</div></td></tr>";
   }
   output += '</table>';
 
@@ -108,7 +110,7 @@ function list_pac_info(pac_div, json) {
       var color_hex = formatted_data[i].color;
       var party_name = formatted_data[i].party;
       var percentage = Math.floor(10*(100*formatted_data[i].value/(total)))/10;
-      output += '<tr><td>' + color_block(color_hex) + '</td><td>' + party_name + ' (' + percentage + '%)</td></tr>';
+      output += '<tr><td>' + color_block(color_hex) + '</td><td>' + party_name + ' <div class="num">(' + percentage + '%)</div></td></tr>';
     }
     output += '</table><div>';
 

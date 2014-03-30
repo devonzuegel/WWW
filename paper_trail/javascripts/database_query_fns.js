@@ -5,6 +5,8 @@ var API_KEY = 'apikey=7059228ecc7540b983aaa75883835c08';
 
 function entity_query(name) {
   return domain + 'entities.json?search=' + name +'&type=organization&' + API_KEY;
+	//  GOOGLE: (sample query)
+  // http://transparencydata.com/api/1.0/entities.json?search=Google&type=organization&apikey=7059228ecc7540b983aaa75883835c08
 }
 
 function party_breakdown_query(id) {
