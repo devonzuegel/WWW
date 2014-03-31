@@ -130,7 +130,7 @@ a:hover { color: gray; }
 	background-color: rgba(0,0,0,0);
 	border: none;
 
-	width: 22px; height: 21px;
+	width: 21px; height: 21px;
 	margin: 5px;
 }
 
@@ -169,7 +169,7 @@ a:hover { color: gray; }
 
 #inputs {
 	margin: 30px;
-	margin-top: 120px;
+	margin-top: 180px;
 	margin-bottom: 10px;
 }
 

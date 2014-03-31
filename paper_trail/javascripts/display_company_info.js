@@ -1,6 +1,6 @@
 function display_company_info() {
 
-  document.getElementById("inputs").style.marginTop = "10px";
+  // document.getElementById("inputs").style.marginTop = "10px";
 
   var name = document.inputs.input_table_id.value;
   var company_id; var company_name;
@@ -64,7 +64,7 @@ function list_pac_info(pac_div, json) {
 
   var output = '<h3>Pac Contributions</h3><table>';
   for (var i = 0; i < json.length; i++)   {
-    output += '<tr><td>' + color_block("#eee", i) + "</td><td>" + json[i].name + " <div class='num'>($" + json[i].total_amount + ")</div></td></tr>";
+    output += '<tr><td>' + color_block("#eee", i+1) + "</td><td>" + json[i].name + " <div class='num'>($" + json[i].total_amount + ")</div></td></tr>";
   }
   output += '</table>';
 
