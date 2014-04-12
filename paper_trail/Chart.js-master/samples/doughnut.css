@@ -3,7 +3,6 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 300;
 	font-size: 14px;
-	/*text-align:center;*/
 }
 
 #hdr {
@@ -67,29 +66,6 @@ tbody {	width: 100%; }
 	display: block;
 }
 
-.small_card-R, .small_card-L { display: inline-block; }
-
-.small_card-R { float: right; width: 80%; }
-.small_card-L { float: left;  width: auto; min-width: 412px; }
-
-.company_hdr {
-	margin:20px;
-	text-align: center;
-	font-size: 42px;
-	font-weight: 400;
-	font-style: bold;
-	padding: 10px;
-}
-
-h1 { display: inline; }
-
-h2 {
-	font-weight: 700;
-	margin: 2px;
-	color: #9E236B;
-	display: block;
-}
-
 h3 {
 	padding: 5px;
 	margin: 0px;
@@ -110,9 +86,11 @@ h3 {
 	text-align: left;
 }
 
-.legend {
+#legend {
+	font-size: 22px;
 	margin-top: 30px;
-	float: right;
+	float: left;
+	width: 450px;
 }
 
 a {
@@ -183,8 +161,7 @@ a:hover { color: gray; }
 
 
 table {
-	border-spacing: 0px;
-	border: none;
+	border-spacing: 5px;
 	background: none;
 }
 /*

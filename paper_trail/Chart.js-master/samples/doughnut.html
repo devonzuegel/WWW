@@ -2,29 +2,113 @@
 <html>
 	<head>
 		<title>Doughnut Chart</title>
+    <link type="text/css" rel="stylesheet" href="doughnut.css" />
 		<script src="../Chart.js"></script>
 		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<style>
-			canvas{
-			}
+			canvas{}
 		</style>
 	</head>
 	<body>
 		<canvas id="canvas" height="450" width="450"></canvas>
-
+		<div id="legend"></div>
 
 	<script>
 
-		var doughnutData = [
-				{ value: 30,		color:"#F7464A"},
-				{ value : 50, 	color : "#46BFBD"},
-				{ value : 100,	color : "#FDB45C"},
-				{ value : 40,		color : "#949FB1"},
-				{ value : 120,	color : "#4D5360"}
-			];	 
+  function color_block(color_hex, content) {
+    if (content == undefined)   content = "";
+    return '<div class="color_block" style="width: 10px; height:10px; background-color:' + color_hex + '">' + content + '</div>';
+  }
+		// create legend & legend table for a doughnut's formatted_data
+	  function legend(data, title) {
+    var total = 0;
+    for (var i = data.length - 1; i >= 0; i--)    total += data[i].value;
 
-	var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
-	
+    // create legend & legend table
+    var output = '<div class="legend"><h3>' + title + '</h3>'    +   '<table class="legend_table">';
+    for (var i = 0; i < data.length; i++) {
+      var color_hex = data[i].color;
+      var name = data[i].name;
+      var percentage = Math.floor(100*data[i].value/total);
+      output += '<tr><td>' + color_block(color_hex) + '</td><td>' + name + ' <div class="num">(' + percentage + '%)</div></td></tr>';
+    }
+    output += '</table><div>';
+
+	    return output;
+	  }
+
+{ // doughnut 1 (Stance on gay marriage)		
+	var doughnutData1 = [
+				{ name: "Same-sex couples have the same right to marriage as heterosexual couples",
+				  value: 32,
+				  color:"#F7464A"
+				},
+				{ name: "Marriage should be between one man and one woman", 
+					value : 17, 	
+					color : "#46BFBD"
+				},
+				{ name: "Marriage should not be within the scope of government. Government does not have the authority to define, license or restrict personal relationships.", 
+					value : 13,	
+					color : "#FDB45C"
+				},
+				{ name: "Undecided", 
+					value : 2,		
+					color : "#949FB1"
+				},
+				{ name: "Other", 
+					value : 4,	
+					color : "#4D5360"
+				},
+			];
+	var myDoughnut1 = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData1);
+	document.getElementById("legend").innerHTML = legend(doughnutData1, "What is your stance on gay marriage?");
+}
+
+// { // doughnut 2 (Should an event promoting same-sex marriage be able to receive funding from the university?)
+// 		var doughnutData2 = [
+// 				{ name: "Yes",
+// 				  value: 47,
+// 				  color:"#F7464A"
+// 				},
+// 				{ name: "No", 
+// 					value : 11, 	
+// 					color : "#46BFBD"
+// 				},
+// 				{ name: "Undecided", 
+// 					value : 6,	
+// 					color : "#FDB45C"
+// 				},
+// 				{ name: "Other", 
+// 					value : 4,	
+// 					color : "#4D5360"
+// 				},
+// 			];
+// 	var myDoughnut2 = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData2);
+// 	document.getElementById("legend").innerHTML = legend(doughnutData2, "Should an event promoting same-sex marriage be able to receive funding from the university?");
+// }
+
+// { // doughnut 2 (Should an event promoting traditional marriage be able to receive funding from the university?)
+// 		var doughnutData3 = [
+// 				{ name: "Yes",
+// 				  value: 43,
+// 				  color:"#F7464A"
+// 				},
+// 				{ name: "No", 
+// 					value : 17, 	
+// 					color : "#46BFBD"
+// 				},
+// 				{ name: "Undecided", 
+// 					value : 6,	
+// 					color : "#FDB45C"
+// 				},
+// 				{ name: "Other", 
+// 					value : 1,	
+// 					color : "#4D5360"
+// 				},
+// 			];
+// 	var myDoughnut3 = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData3);
+// 	document.getElementById("legend").innerHTML = legend(doughnutData3, "Should an event promoting traditional marriage be able to receive funding from the university?");
+// }
 	</script>
 	</body>
 </html>

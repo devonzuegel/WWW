@@ -1,7 +1,5 @@
 function display_company_info() {
 
-  // document.getElementById("inputs").style.marginTop = "10px";
-
   var name = document.inputs.input_table_id.value;
   var company_id; var company_name;
 
@@ -19,8 +17,8 @@ function display_company_info() {
       party_breakdown_graph(company_id, company_name);
       recipient_pacs_card(company_id, company_name);
     }
-
   });
+
 }
 
 function company_header(company_name, name) {

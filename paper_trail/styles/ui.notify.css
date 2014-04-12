@@ -1,32 +1,24 @@
 .ui-notify {
 	width:100%; height: 100%;
 	position:fixed; 
+	margin-top: 70px;
 	top: 0px; 
 	right: 0px; 
-	/*background-color: rgba(255,255,255,.6);*/
-	/*background-color: rgba(255,230,200,.5);*/
+	background-color: rgba(255,255,255,.5);
 }
+
 
 .ui-notify .ui-notify-background {
 	position: absolute;
-	
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-
+	top: 0;	right: 0;	bottom: 0;	left: 0;
 	background-image: url("../resources/diagonal-stripes1.png");
-	opacity: .4;
 }
 
 .ui-notify-message {
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 80px;
 	padding:10px; 
 	text-align: center;
-/*-moz-border-radius:5px; 
-	-webkit-border-radius:5px; 
-	border-radius:5px; */
 }
 
 .ui-notify-message:last-child { 
@@ -45,14 +37,13 @@
 
 .ui-notify-message-style p { 
 	margin: auto;
-	width: 600px;
+	width: 500px;
 	max-width: 90%;
 	color:#fff;
 }
 
 .ui-notify-close { 
 	color:#fff; 
-	/*text-decoration:underline;*/
 }
 
 .ui-notify-click { 
@@ -63,12 +54,12 @@
 	background-color: rgba(255,255,255,.2);
 	color: #eee;
 
-	width: 20px;
-	height: 20px;
+	width: 24px;
+	height: 24px;
 	border-radius: 20px;
 	
 	margin-top: -10px; 
-	margin-right: 10px; 
+	margin-right: 20px; 
 	padding: 2px;
 	float: right; 
 	
@@ -76,7 +67,7 @@
 
 	line-height: 110%;
 	text-decoration: none; 
-	font-size: 15px; 
+	font-size: 20px; 
 	font-weight: bold;  
 }
 .ui-notify-cross:hover { 

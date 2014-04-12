@@ -13,13 +13,7 @@
 
   $.widget("ech.notify", {
 
-    options: {
-      speed: 500,
-      expires: 5000,
-      stack: "below",
-      custom: false,
-      queue: false
-    },
+    options: {  speed: 500,  expires: 5000,  stack: "below",  custom: false,  queue: false  },
 
     _create: function(){
       var self = this;
@@ -97,7 +91,6 @@
         }
       };
 
-
       // show close link?
       if(closelink.length){
         closelink.bind("click", function(){
@@ -123,10 +116,10 @@
     },
 
     close: function(){
-      var speed = this.options.speed/2;
+      var speed = this.options.speed/3;
 
-      document.getElementById("container").style.display = "none";
-      this.element.fadeTo(speed, 0).slideUp(speed, $.proxy(function(){
+      this.element.fadeOut(speed, 0).slideUp(speed, $.proxy(function(){
+        document.getElementById("container").style.display = "none";
         this._trigger("close");
         this.isOpen = false;
         this.element.remove();
@@ -155,13 +148,9 @@
       return this;
     },
 
-    widget: function(){
-      return this.element;
-    },
+    widget: function(){  return this.element;  },
+    _trigger: function(type, e, instance){   return this.__super._trigger.call( this, type, e, instance );   }
 
-    _trigger: function(type, e, instance){
-      return this.__super._trigger.call( this, type, e, instance );
-    }
   });
 
 })(jQuery);
