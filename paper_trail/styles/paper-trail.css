@@ -6,6 +6,20 @@
 	/*text-align:center;*/
 }
 
+.msg {
+	margin: auto;
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+	font-size: 20px;
+	background-color: rgba(255,100,100,.8);
+}
+
+.msgtxt {
+	max-width: 700px;	
+	margin:auto;
+}
+
 #hdr {
 	background-color: white;
 	border: #ddd solid 1px;

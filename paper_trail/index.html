@@ -24,8 +24,6 @@
 <div id="content">
   <div id="container" style="display:none">
     <div id="sticky"><a class="ui-notify-close ui-notify-cross" href="#">x</a>    <h1>#{title}</h1>    <p>#{text}</p></div>
-  </div>
-
   <script type="text/javascript">
     function create( template, vars, opts ) { 
       return $container.notify("create", template, vars, opts);   
@@ -35,13 +33,15 @@
       $container = $("#container").notify();
       create("sticky", { title:'Hello there!', text:'This site is currently in progress. Please email me at <b>devonz@stanford.edu</b> if you have any questions, comments, or suggestions.'},{ expires:false });
     });
-  </script>
+  </script>  </div>
+
 </div>
 
 <div id="hdr">
   <a href="about.html" id="about-label" class="nav-btn"></a>
   <a href="index.html" id="search-label" class="nav-btn" style="margin-right:0px"></a>
 </div>
+  <div class='msg'><div class='msgtxt'><h1>Hello there!</h1><br>This site is currently under construction. Please email me at <b>devonz@stanford.edu</b> if you have any questions, comments, or suggestions.</div></div>
 
 <body id="body">
 
