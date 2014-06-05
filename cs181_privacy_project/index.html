@@ -3,25 +3,9 @@
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:200, 300,500' rel='stylesheet' type='text/css'>	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:200, 300, 600,500' rel='stylesheet' type='text/css'>	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-		  $('a[href*=#]:not([href=#])').click(function() {
-		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-		      var target = $(this.hash);
-		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-		      if (target.length) {
-		        $('html,body').animate({
-		          scrollTop: target.offset().top
-		        }, 500);
-		        return false;
-		      }
-		    }
-		  });
-		});
-	</script>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 	<title>Digital Privacy at Stanford</title>
 </head>
@@ -42,24 +26,97 @@
 		<h3>Welcome</h3>
 		</div>
 		<div class="light section">
-			<a name="laws"></a>
-			<h2>State &amp; Federal Laws</h2>
+			<a name="laws"></a><h2>State &amp; Federal Laws</h2>
 
-			<p>Cupcake ipsum dolor sit. Amet I love <a href="http://google.com">liquorice</a> jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
+			<p>Europeans look at privacy much different than we do here in US ... there, a sort of “constitutional right” to privacy ... here, privacy by design-- no inherent privacy rights, instead defined by wherever we can find a state/federal statute ... ex: students are protected under FERPA ... alos state statutes that require notification/report of a breach, etc.</p>
+
+			<div class="accordion">
+				<!-- FERPA -->
+				<div class="accord-header"><h4>+ Family Educational Rights &amp; Privacy Act (FERPA)</h4></div>
+				<div class="accord-content">
+					<p>FERPA was signed into US federal law by President Gerald Ford in 1974. It applies to educational institutions that receive funding from the Department of Education. The law gives parents access to their children's records, an opportunity to have records amended, and some control of information from the records. After a student is 18 years old, schools must get receive the student's consent prior to disclosure of his or her education records.</p>
+					<p>The University Registrar's site provides a notification of Stanford students' rights afforded under Ferpa. These include:</p>
+					<table><tr>
+						<td>The right to consent to disclosures of personally identifiable information contained in the student's education records, except to the extent that FERPA authorizes disclosure without consent.</li>
+						<td>The right to file a complaint with the U.S. Department of Education concerning alleged failures by the University to comply with the requirements of FERPA.</td>
+					</tr><tr>
+						<td>The right to request the amendment of the student's education records that the student believes are inaccurate, misleading, or otherwise in violation of the student's privacy rights under FERPA.</td>
+						<td>The right to inspect and review the student's education records within 45 days of the date the University receives a request for access.</td>
+					</tr></table>
+					<p>For more information, refer to the <a href="http://studentaffairs.stanford.edu/registrar/students/ferpa">Registrar's webpage</a>.</p>
+				</div>
+				<br>
+				<!-- HIPPA -->
+				<div class="accord-header"><h4>+  Health Insurance Portability &amp; Accountability Act (HIPAA)</h4></div>
+				<div class="accord-content">
+					<p>This law was passed in 1996 to protect information associated with an individual’s medical records and history. It’s main provisions are set out in two rules: the “Privacy Rule” and the “Security Rule.”</p>
+					<p>Since Stanford operates medical institutions and provides medical services, it must comply with the expectations set out by HIPAA.</p>
+					<p><b>Privacy Rule:</b> limits Stanford University's use and disclosure of information that could potentially associate an individual's identity with his/her health information</p>
+					<p><b>Security Rule:</b> requires Stanford University to implement administrative, technical, and physical safeguards to ensure the confidentiality, integrity and availability of PHI (Personal Health Information) maintained in an electronic form ("ePHI") and to protect ePHI against any reasonably anticipated threats or hazards, unauthorized uses or disclosures.</p>
+				</div>
+				<br>
+				<!-- Gramm-Leach-Bliley -->
+				<div class="accord-header"><h4>+  Gramm-Leach-Bliley Act</h4></div>
+				<div class="accord-content">
+					<p>The Gramm-Leach-Bliley Act requires financial institutions to explain their information-sharing practices to their customers and to safeguard sensitive data. The term “financial institutions” spans all establishments that offer consumers financial products or services like loans, financial or investment advice, or insurance.</p>
+				</div>
+			</div>
+
 		</div>
 		<div class="dark section">
-			<a name="stanford_policy"></a>
-			<h2>Stanford's Policy</h2>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding <a href="http://google.com">croissant</a> I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
+			<a name="stanford_policy"></a><h2>Stanford's Policy</h2>
+			<audio controls><embed src="audio/InterviewWithDan.mp3"></audio>
+			<h4>Public Directory Information</h4>
+			<p>Any school, company, district, or entity that maintains records about its students, employees, or associated personels are required to disclose the type of information that an entity considers directory information. Directory information is publically accessible information about an entity’s people. We examine and compare the directory information of Stanford and UC Berkeley.</p>
+
+			<table>
+				<tr><th><h4>Stanford</h4></th>  <th><h4>UC Berkeley</h4></th></tr>
+				<tr><td><div class="tableList">
+					Name<br>
+					Email addresses<br>
+					Specific quarters of registration<br>
+					Degree(s) awarded and date(s)<br>
+					Major(s), minor(s), and field(s)<br>
+					Degree honors<br>
+					Student theses and dissertations<br>
+					Participation in officially activities<br>
+					Weight and height (for athletic teams)<br>
+					Prior institutions/schools<br>
+					ID card photographs<br>
+				</td><td><div class="tableList">
+					Name<br>
+					Addresses (local/permanent/email)<br>
+					Telephone number(s)<br>
+					Date and place of birth<br>
+					Dates of attendance<br>
+					Class level<br>
+					Units enrolled<br>
+					Major(s), minor(s), field(s)<br>
+					Prior institutions/schools<br>
+					Degree(s) and honor(s)<br>
+					Participation in official activities<br>
+					Weight and height (for athletic teams)<br>
+				</td>
+				</tr>
+			</tr></table>
+
+			<p>UC Berkeley discloses slightly more information about its students than Stanford does. For example, Stanford only discloses email addresses while UC Berkeley can disclose a student’s physical and email addresses. These difference are not related to the fact that these are private and public schools, rather it simply the fact that different schools have different policies. Regardless of what school anyone goes to, it is important that people understand the kinds of information a school may publicly disclose about them.</p>
+
+			<h4>Data Classification at Stanford</h4>
+			<p>Stanford classifies information under four categories: 
+				<a class="tooltip">unrestricted<span class="classic">Information is classified as <b>Prohibited</b> if protection of the information is required by law/regulation or Stanford is required to self-report to the government and/or provide notice to the individual if information is inappropriately accessed</span></a>, 
+				<a class="tooltip">confidential<span class="classic">Information is classified as <b>Restricted</b> if (i) it would otherwise qualify as "Prohibited" but it has been determined by the DGB that prohibiting information storage on Computing Equipment would significantly reducefaculty/staff/student effectiveness when acting in support of Stanford's mission and/or (ii) it is listed as Restricted in the "Classification of Common Data Elements" below.</span></a>,
+				<a class="tooltip">restricted<span class="classic">Information is classified as <b>Confidential</b> if (i) it is not considered to be Prohibited or Restricted and is not generally available to the public, or (ii) it is listed as Confidential in the "Classification of Common Data Elements".</span></a>, and
+				<a class="tooltip">prohibited<span class="classic">Information is classified as <b>Unrestricted</b> if it is not considered to be Prohibited, Restricted, or Confidential.</span></a>.</p>
+</p>
 		</div>
 		<div class="light section">
 			<a name="student_involvement"></a>
 			<h2>Student Involvement</h2>
+			<img src="images/can_parents_see_records.png"/>
+			<img src="images/have_you_heard_of_ferpa.png"/>
+			<img src="images/privacy_importance.png"/>
+			<img src="images/security_importance.png"/>
 			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
 			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
 			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
@@ -76,3 +133,35 @@
 	
 </body>
 </html>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$(".accordion .accord-header").click(function() {
+			if($(this).next("div").is(":visible")){
+				$(this).next("div").slideUp("medium");
+			} else {
+				$(".accordion .accord-content").slideUp("medium");
+				$(this).next("div").slideToggle("medium");
+			}
+		});
+	});
+
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 500);
+	        return false;
+	      }
+	    }
+	  });
+	});
+
+</script>
+
