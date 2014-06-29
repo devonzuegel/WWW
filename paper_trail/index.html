@@ -29,10 +29,6 @@
       return $container.notify("create", template, vars, opts);   
     }
     
-    $(function(){  // creates sticky notification on page load
-      $container = $("#container").notify();
-      create("sticky", { title:'Hello there!', text:'This site is currently in progress. Please email me at <b>devonz@stanford.edu</b> if you have any questions, comments, or suggestions.'},{ expires:false });
-    });
   </script>  </div>
 
 </div>
@@ -71,6 +67,7 @@
       <tr>
         <td valign="top"> <!-- LEFT COLUMN -->
           <div class="small_card-L" id="party_breakdown"></div>
+          <div class="small_card-L" id="issues_div"></div>
           <div id="top-recipients"></div>
         </td>
 

@@ -6,6 +6,9 @@
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:200, 300, 600,500' rel='stylesheet' type='text/css'>	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+	<script type='text/javascript' src='blurjs/blur.min.js'></script>
 
 	<title>Digital Privacy at Stanford</title>
 </head>
@@ -13,22 +16,35 @@
 <body>
 	<h1>Digital Privacy at Stanford</h1>
 	<div class = "navSide">
-		<div class="nav_link"><a href="#laws">STATE &amp; FEDERAL LAWS</a></div>
-		<div class="nav_link"><a href='#stanford_policy'>STANFORD'S POLICY</a></div>
-		<div class="nav_link"><a href='#student_involvement'>STUDENT INVOLVEMENT</a></div>
-		<div class="nav_link"><a href='#our_take'>OUR TAKE</div></a>
+		<div class="nav_link"><a href="#laws">LAWS</a></div>
+		<div class="nav_link"><a href='#stanford_policy'>POLICY</a></div>
+		<div class="nav_link"><a href='#student_involvement'>AWARENESS</a></div>
+		<div class="nav_link"><a href='#our_take'>ETHICS</div></a>
 	</div>
 	<!-- <div class="spacer"></div> -->
 	<div id="wrapper">
 
 		<!-- Welcome -->
-		<div class="dark section" id='photo1'>
-		<h3>Welcome</h3>
-		</div>
 		<div class="light section">
+			<h3>Welcome our site</h3>
+			<p>This website is the culmination of our work in CS181, Stanford's class on Computers, Ethics, and Public Policy. Our research was inspired by a 2002 study by Stanford students that pointed out privacy policy weaknesses and concerns on campus. Because the web has changed so much over the past decade, we decided to bring the original study up to date.</p>
+		</div>
+
+		<div id='photo1' class='section dark'><div class='transparent'>
+			<h3 style="margin-top:0px">A study of student privacy issues</h3>
+			<i>by The Stanford Student Computer and Network Privacy Project (2002)</i>
+			<p>An interesting finding of the 2002 <a href='http://dl.acm.org/citation.cfm?id=504729&amp;picked=prox&amp;cfid=465027073&amp;cftoken=69826990'>study</a> was that Stanford students were overwhelming uninformed about their privacy rights. Major portions of the study focused on recommendations for increasing student, particularly undergrad, awareness on campus. Throughout the project, we framed our research in a way that students could quickly digest the information. While a key goal was to keep our content very accessible, we also provide links to further information for those more interested in the specifics.</p>
+		</div></div>
+
+		<div class="light section"> <!-- Laws -->
 			<a name="laws"></a><h2>State &amp; Federal Laws</h2>
 
-			<p>Europeans look at privacy much different than we do here in US ... there, a sort of “constitutional right” to privacy ... here, privacy by design-- no inherent privacy rights, instead defined by wherever we can find a state/federal statute ... ex: students are protected under FERPA ... alos state statutes that require notification/report of a breach, etc.</p>
+			<p>In an interview with <a href='https://acp.stanford.edu/staff/david-behinfar'>David Behinfar, Director of Privacy at Stanford</a>, we learned that privacy is approached very differently in America than in Europe. He said that privacy is effectively a constitutional right in Europe, while in America we have a system of "privacy by design". Instead of inherent privacy rights, it is defined only where we can find a state or federal statute. Instead of a broad, overarching principle applying to all individuals, we have a patchwork system of laws that apply to specific groups in specific circumstances. With this analysis in mind, it is easy to see why there is so little awareness of privacy policies among Stanford students and beyond.</p>
+
+			<div class="audiobox"><table><tr>  <!-- Interview with David -->
+				<td><audio controls><source src="audio/interviewWithDan.mp3" autoplay="none"></audio></td>
+				<td><div class='blurbRight'>Listen to the full interview with Stanford's Director of Privacy <a href='https://acp.stanford.edu/staff/david-behinfar'>David Behinfar</a>.</div></td>
+			</tr></table></div>
 
 			<div class="accordion">
 				<!-- FERPA -->
@@ -45,89 +61,199 @@
 					</tr></table>
 					<p>For more information, refer to the <a href="http://studentaffairs.stanford.edu/registrar/students/ferpa">Registrar's webpage</a>.</p>
 				</div>
-				<br>
 				<!-- HIPPA -->
 				<div class="accord-header"><h4>+  Health Insurance Portability &amp; Accountability Act (HIPAA)</h4></div>
-				<div class="accord-content">
-					<p>This law was passed in 1996 to protect information associated with an individual’s medical records and history. It’s main provisions are set out in two rules: the “Privacy Rule” and the “Security Rule.”</p>
-					<p>Since Stanford operates medical institutions and provides medical services, it must comply with the expectations set out by HIPAA.</p>
-					<p><b>Privacy Rule:</b> limits Stanford University's use and disclosure of information that could potentially associate an individual's identity with his/her health information</p>
-					<p><b>Security Rule:</b> requires Stanford University to implement administrative, technical, and physical safeguards to ensure the confidentiality, integrity and availability of PHI (Personal Health Information) maintained in an electronic form ("ePHI") and to protect ePHI against any reasonably anticipated threats or hazards, unauthorized uses or disclosures.</p>
-				</div>
-				<br>
+					<div class="accord-content">
+						<p>This law was passed in 1996 to protect information associated with an individual's medical records and history. Its main provisions are set out in two rules: the "Privacy Rule" and the "Security Rule".</p>
+						<p>Since Stanford operates medical institutions and provides medical services, it must comply with the expectations set out by HIPAA.</p>
+						<p><b>Privacy Rule:</b> limits Stanford University's use and disclosure of information that could potentially associate an individual's identity with his/her health information</p>
+						<p><b>Security Rule:</b> requires Stanford University to implement administrative, technical, and physical safeguards to ensure the confidentiality, integrity and availability of PHI (Personal Health Information) maintained in an electronic form ("ePHI") and to protect ePHI against any reasonably anticipated threats or hazards, unauthorized uses or disclosures.</p>
+					</div>
 				<!-- Gramm-Leach-Bliley -->
 				<div class="accord-header"><h4>+  Gramm-Leach-Bliley Act</h4></div>
-				<div class="accord-content">
-					<p>The Gramm-Leach-Bliley Act requires financial institutions to explain their information-sharing practices to their customers and to safeguard sensitive data. The term “financial institutions” spans all establishments that offer consumers financial products or services like loans, financial or investment advice, or insurance.</p>
-				</div>
+					<div class="accord-content">
+						<p>The Gramm-Leach-Bliley Act requires financial institutions to explain their information-sharing practices to their customers and to safeguard sensitive data. The term "financial institutions" spans all establishments that offer consumers financial products or services like loans, financial or investment advice, or insurance.</p>
+					</div>
+				<!-- ECPA -->
+				<div class="accord-header"><h4>+  Electronic Communication Privacy Act (ECPA)</h4></div>
+					<div class="accord-content">
+						<p>The ECPA is a federal law enacted in 1986 that extends government restrictions on wire taps from telephone calls to include transmissions of electronic data by computers.</p>
+					</div>
 			</div>
-
 		</div>
-		<div class="dark section">
-			<a name="stanford_policy"></a><h2>Stanford's Policy</h2>
-			<audio controls><embed src="audio/InterviewWithDan.mp3"></audio>
+		<div class="dark section"> <!-- Stanford Policy -->
+			<img style="padding:20px; padding-right:0px; float:right" width="200px" src="images/stanford-logo2.png"/>
+			<a name="stanford_policy"></a><h2>Stanford's Policy</h2><br>
 			<h4>Public Directory Information</h4>
-			<p>Any school, company, district, or entity that maintains records about its students, employees, or associated personels are required to disclose the type of information that an entity considers directory information. Directory information is publically accessible information about an entity’s people. We examine and compare the directory information of Stanford and UC Berkeley.</p>
-
-			<table>
+			<p>Any school, company, district, or entity that maintains records about its students, employees, or associated personels are required to disclose the type of information that an entity considers directory information. Directory information is publically accessible information about an entity's people. Below, you can find the directory information of <a href='https://studentaffairs.stanford.edu/registrar/students/pers-info/directory'>Stanford</a> and <a href='http://registrar.berkeley.edu/ferpa.html'>UC Berkeley</a>.</p>
+			<table> <!-- Stanford v. Berkeley -->
 				<tr><th><h4>Stanford</h4></th>  <th><h4>UC Berkeley</h4></th></tr>
 				<tr><td><div class="tableList">
-					Name<br>
-					Email addresses<br>
-					Specific quarters of registration<br>
-					Degree(s) awarded and date(s)<br>
-					Major(s), minor(s), and field(s)<br>
-					Degree honors<br>
-					Student theses and dissertations<br>
-					Participation in officially activities<br>
-					Weight and height (for athletic teams)<br>
-					Prior institutions/schools<br>
-					ID card photographs<br>
+					<i>
+						Name<br>
+						Specific quarters of registration<br>
+						Prior institutions/schools<br>
+						Major(s), minor(s), and field(s)<br>
+						Degree(s) &amp; honors<br>
+						Weight &amp; height (for athletic teams)<br>
+						Participation in officially activities<br>
+						Email addresses<br>
+					</i><br><b>
+						Theses &amp; dissertations<br>
+						ID card photographs
+					</b>
 				</td><td><div class="tableList">
-					Name<br>
-					Addresses (local/permanent/email)<br>
-					Telephone number(s)<br>
-					Date and place of birth<br>
-					Dates of attendance<br>
-					Class level<br>
-					Units enrolled<br>
-					Major(s), minor(s), field(s)<br>
-					Prior institutions/schools<br>
-					Degree(s) and honor(s)<br>
-					Participation in official activities<br>
-					Weight and height (for athletic teams)<br>
+					<i>
+						Name<br>
+						Dates of attendance<br>
+						Prior institutions/schools<br>
+						Major(s), minor(s), field(s)<br>
+						Degree(s) and honor(s)<br>
+						Weight &amp; height (athletes)<br>
+						Participation in official activities<br>
+						Addresses (local/permanent/email)<br>
+					</i><br><b>
+						Telephone numbers<br>
+						Date and place of birth<br>
+						Class level<br>
+						Units enrolled
+					</b>
 				</td>
 				</tr>
-			</tr></table>
+				</tr></table>
+				<p>This chart indicates that UC Berkeley discloses slightly more information about its students than Stanford. These difference are not related to the fact that these are private and public schools; different schools simply have different policies as decided by the administrators.</p>
+				<p>Go to the <a href="http://www.google.com/url?q=http%3A%2F%2Fstudentaffairs.stanford.edu%2Fregistrar%2Fstudents%2Fferpa%2Fdefault&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEcrrlljD2ynxHVKOWs5nj4mYly_Q">Registrar's website</a> to learn more about the default privacy settings to student information upon admission to the university. However, students with an active SUNETID can change their privacy settings in access.</p>
 
-			<p>UC Berkeley discloses slightly more information about its students than Stanford does. For example, Stanford only discloses email addresses while UC Berkeley can disclose a student’s physical and email addresses. These difference are not related to the fact that these are private and public schools, rather it simply the fact that different schools have different policies. Regardless of what school anyone goes to, it is important that people understand the kinds of information a school may publicly disclose about them.</p>
+			<h4>Stanford's Residential Privacy Policy</h4>
+			<p>Stanford's <a href='http://acomp.stanford.edu/about/policy'>Residential Privacy Policy</a> states that Academic Computing Services (ACS) collects contact information, including on-campus residence, phone number, email address, and name. The policy states that personally identifiable information is used exclusively to announce security updates and network outages. It also says that ACS will not share personally identifiable information outside of the University unless compelled by court order, subpoena, or emergency circumstances.</p>
+
+			<p>Recently, Stanford's VP for Business Affairs Randy Livingston <a href='http://ucomm.stanford.edu/computersecurity/'>sent a letter</a> to the University community that outlined new security mandates. These requirements included the installation of <a href='https://itservices.stanford.edu/service/bigfix'>BigFix</a>, a program that allows Stanford IT Services to install security patches, to collect information about the computer, and to remotely configure power settings. Among several other requirements, the letter also mandated that all systems must use a University-managed file backup service.</p>
+
+			<p>Soon after the requirements were released, a group of grad students and faculty expressed concerns about the impact of the mandate on individual privacy and research productivity. In particular, they were anxious about giving IT Services administrator privileges through BigFix and the about the file backup service, which would give the University access to files long-deleted by the device's owner. Livingston <a href='http://ucomm.stanford.edu/computersecurity/'>responded with a second letter</a>, suspending the key elements of the mandate for six months while a committee undertakes the mandate's review.
+			</p>
 
 			<h4>Data Classification at Stanford</h4>
 			<p>Stanford classifies information under four categories: 
-				<a class="tooltip">unrestricted<span class="classic">Information is classified as <b>Prohibited</b> if protection of the information is required by law/regulation or Stanford is required to self-report to the government and/or provide notice to the individual if information is inappropriately accessed</span></a>, 
-				<a class="tooltip">confidential<span class="classic">Information is classified as <b>Restricted</b> if (i) it would otherwise qualify as "Prohibited" but it has been determined by the DGB that prohibiting information storage on Computing Equipment would significantly reducefaculty/staff/student effectiveness when acting in support of Stanford's mission and/or (ii) it is listed as Restricted in the "Classification of Common Data Elements" below.</span></a>,
-				<a class="tooltip">restricted<span class="classic">Information is classified as <b>Confidential</b> if (i) it is not considered to be Prohibited or Restricted and is not generally available to the public, or (ii) it is listed as Confidential in the "Classification of Common Data Elements".</span></a>, and
-				<a class="tooltip">prohibited<span class="classic">Information is classified as <b>Unrestricted</b> if it is not considered to be Prohibited, Restricted, or Confidential.</span></a>.</p>
-</p>
+				<a class="tooltip">unrestricted<span class="classic">Information is classified as <b>Unrestricted</b> if it is not considered to be Prohibited, Restricted, or Confidential.</span></a>, 
+				<a class="tooltip">confidential<span class="classic">Information is classified as <b>Confidential</b> if (i) it is not considered to be Prohibited or Restricted and is not generally available to the public, or (ii) it is listed as Confidential in the "Classification of Common Data Elements".</span></a>,
+				<a class="tooltip">restricted<span class="classic">Information is classified as <b>Restricted</b> if (i) it would otherwise qualify as "Prohibited" but it has been determined by the DGB that prohibiting information storage on Computing Equipment would significantly reducefaculty/staff/student effectiveness when acting in support of Stanford's mission and/or (ii) it is listed as Restricted in the "Classification of Common Data Elements" below.</span></a>, and
+				<a class="tooltip">prohibited<span class="classic">Information is classified as <b>Prohibited</b> if protection of the information is required by law/regulation or Stanford is required to self-report to the government and/or provide notice to the individual if information is inappropriately accessed.</span></a>.</p>
+			</p>
+
+
+
+
+		</div>
+		<div class="light section"> <!-- Student Awareness -->
+			<a name="student_involvement"></a>
+			<h2>Student Awareness</h2>
+			<p>In order to probe the state of student awareness concerning their privacy rights at Stanford, we conducted a short survey targeting current Stanford undergraduates. From the results of this survey, it appears that Stanford students overall are not very aware of what privacy rights and protections they are guaranteed by both University policy and federal law. Some key results were: </p>
+			<table>
+
+				<tr>
+					<td>
+						<img src="images/privacy_importance.png" style="width:100%"/>
+					</td><td><p>
+						First, we asked respondents how important the issues of privacy and security were to them. The general results were that students care a lot about their privacy and security.
+					</p></td>
+				</tr>
+
+				<tr>
+					<td>
+						We then decided to ask the same study participants about their knowledge of their privacy rights.
+					</td><td>
+						<img src="images/security_importance.png" style="width:100%"/>
+					</td>
+
+			</tr>
+
+
+				<tr><td>
+					<img src="images/have_you_heard_of_ferpa.png" style="width:100%"/>
+				</td><td>
+					<p>Only a quarter of respondents had heard of FERPA, the privacy law most relevant to students. Furthermore, those who recognized the acronym were unclear on what the law actually mandates; in response to the question, one student said, "Nope... I just know I signed it in high school or something haha".</p>
+				</td></tr>
+
+				<tr><td>
+					<p>We also asked students whether or not they believed their parents could access their grades without their permission. The law mandates that parents may only have drirect access to their child's grades if the child is a tax-dependent. Because most undergraduates are tax-dependent, the majority of Stanford students' parents can see their grades; meanwhile, three-quarters of the respondents said they do not believe their parents have access.</p>
+				</td><td>
+					<img src="images/can_parents_see_records.png" style="width:120%"/>
+				</td></tr>
+
+			</table>
+		</div>
+		<div class="dark section"> <!-- Moral Frameworks -->
+			<a name="our_take"></a>
+			<h2>Moral Frameworks</h2>
+			
+			<p>Privacy laws and policies are created to help protect individuals on information about them. There are many perspectives that privacy policies can be viewed from that can justify or question the necessity of privacy laws and policies such as FERPA, HIPAA, and many more. In relevance with our studies, we will analyze privacy policies from utilitarian and deontological perspectives.</p>
+
+			<p>From a utilitarian perspective, many may argue that privacy policies help to foster and create an environment of trust that allow individuals and the community to freely develop ideas and live in comfort. Granting individual privacy rights can ensure that they feel safe from judgement and thus free to develop ideas that could consequently result in greater good and happiness for both the individual and community. In regards to academic privacy, it is imperative that students not feel pressured that their academic performance be made public. This reassurance benefits students by reducing stress and fear of judgement, creating a better academic environment that fosters honesty and integrity; ultimately benefitting the individual and student body. Although some may argue that privacy is the best interest of the community, a different utilitarian argument may claim that privacy allows for, sometimes crucial, information to be hidden from the public. For example, we can consider the case in which a patient is receiving a life-threatening operation. It would be in ultimate interest of the patient to choose a surgeon who was academically proficient over one who barely passed medical school. While privacy policies may provide individuals reassurance, it may sometimes hide information that would be more beneficial to be public than private.</p>
+
+			<p>From a deontological perspective, it is easy to argue that privacy is simply an inherent human right. Privacy pertains to the actions, information, affairs, reputation, and aspects of an individual. Thus we can argue deontologically that privacy policies are in the duty of enforcing something that belongs to the rights of an individual. In terms of academic privacy, the right to whether parents or legal guardians are allowed to view their child's education records may argued. While a student's academic records certain reflect the properties of a student, we can argue that if a parent is paying for their child's tuition, then they have an inherent right to access their child's records. A deontological argument may claim that parents not only should have the right to inspect the status of their investment, but also have the right as a human to know how their child is performing.</p>
+
+			<br>
+
+			<div class="audiobox darkaudiobox"><table><tr>  <!-- Interview with Aleecia -->
+				<td><audio controls><source src="audio/interviewWithAleecia.mp3" autoplay="none"></audio></td>
+				<td>Listen to an interview with <a href='http://cyberlaw.stanford.edu/about/people/aleecia-mcdonald'>Aleecia McDonald</a>, Director of Privacy at The Center for Internet and Society at Stanford.</td>
+			</tr></table></div>
+
 		</div>
 		<div class="light section">
-			<a name="student_involvement"></a>
-			<h2>Student Involvement</h2>
-			<img src="images/can_parents_see_records.png"/>
-			<img src="images/have_you_heard_of_ferpa.png"/>
-			<img src="images/privacy_importance.png"/>
-			<img src="images/security_importance.png"/>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-		</div>
-		<div class="dark section">
-			<a name="our_take"></a>
-			<h2>Our Take</h2>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding <a href="http://google.com">croissant</a> I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
-			<p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart cookie applicake caramels. Halvah macaroon I love lollipop. Wypas I love pudding brownie cheesecake tart jelly-o. Bear claw cookie chocolate bar jujubes toffee.</p>
+			<h3>Miscellaneous</h3>
+			<p>Here you can find the slides from the presentation we gave to our CS181 class on Friday 6 June and our annotated bibliography for further resources.</p>
+			<div class="accordion">
+				<div class="accord-header"><h4>+ Presentation Slides</h4> Click to see the slides for our final presentation.</div>
+				<div class="accord-content" style="border:none">
+					<iframe src="images/presentation-slides.pdf" style="width:100%; height:560px; margin-left:-20px" frameborder="0"></iframe>
+				</div>
+				<div class="accord-header"><h4>+ Annotated Bibliography</h4> Click to see our annotated bibliography.</div>
+				<div class="accord-content" style="border:none">
+					<br>
+					<p dir="ltr"><i>"1.6.1 Privacy Policy." Administrative Guide. Stanford University, n.d. Web. 26 May 2014. <a href="https://adminguide.stanford.edu/chapter-1/subchapter-6/policy-1-6-1">https://adminguide.stanford.edu/chapter-1/subchapter-6/policy-1-6-1</a>&gt;.</i></p>
+					<p dir="ltr">Stanfords Privacy Policy documentation on the Administrative Guide section of the official website provides an overview and outline of what Stanfords obligations are in regards to students' privacy. It briefly provides descriptions of the rights students have to their personal information such as academic, health, and financial records, as well as the limitations of how Stanford can use its data. In most cases it appears that Stanford's use, disclosure, storage, or collection of student information is fairly limited, and must strictly comply with Federal and state laws. However, in cases where legal action is necessary, Stanford may be required to disclose information about students and/or faculty.</p>
+					&nbsp;
+
+					<p dir="ltr"><i>"Privacy of Student Record/FERPA (GAP 8.2)." Privacy of Student Record/FERPA (GAP 8.2). Stanford University, n.d. Web. 26 May 2014. &lt;<a href="http://gap.stanford.edu/8-2.html">http://gap.stanford.edu/8-2.html</a>&gt;.</i></p>
+					<p dir="ltr">As an academic institution, Stanford University is required to follow the Family Education Rights and Privacy Act of 1974 (FERPA) that provides regulation for how academic records for a student are allowed to be disclosed or used. FERPA provides students the right to request and review education records from the University, the right to request changes to education records, and the right to file a complaint with the U.S. department of Education. In addition, FERPA also outlines the ways a student's records may be disclosed without the consent of the student. For example, Stanford is allowed to disclose education records to parents or guardians without the consent of the student as long as they are claimed as a dependent under the Internal Revenue Code.</p>
+					&nbsp;
+
+					<p dir="ltr"><i>"6.2.1 Computer and Network Usage Policy." Administrative Guide. Stanford University, n.d. Web. 26 May 2014. &lt;https://adminguide.stanford.edu/chapter-6/subchapter-2/policy-6-2-1&gt;.</i></p>
+					<p dir="ltr">Stanford faculty, staff, and students rely heavily on network and Internet access throughout the school. In order to comply with both legal regulations and University policies, Stanford has outlined computer and network usage policies that dictate how and what Stanford's networks are allowed to be used, this includes protection for student information, prohibiting advertising or solicitations, and managing copyright material. In particular, the network usage policy describes how under certain legal circumstances, the university may disclose or review records relating to the use of information services at its discretion. As a result, the policy informs users that users should “not have a reasonable expectation of privacy when using the University's information resources.”</p>
+					&nbsp;
+
+					<p dir="ltr"><i>Zivkovic, Alex. "Stanford's Privacy Infrastructure Well-adapted to U.S. Department of Education's Digital Concerns." The Stanford Daily. N.p., n.d. Web. 26 May 2014. &lt;<a href="http://www.stanforddaily.com/2014/03/12/stanfords-privacy-infrastructure-well-adapted-to-u-s-department-of-educations-digital-concerns/">http://www.stanforddaily.com/2014/03/12/stanfords-privacy-infrastructure-well-adapted-to-u-s-department-of-educations-digital-concerns/</a>&gt;.</i></p>
+					<p dir="ltr">On 25 February 2014, the U.S. Department of Education released a document providing guidance to educators at primary, secondary, and higher education institutions about how to best protect student online privacy given the increase in the use of online educational services. This article from The Stanford Daily describes how few of these changes will affect Stanford, because many of the suggestions have already been implemented on our campus. It also briefly discusses those structures as well as Stanford's response to the public letter.</p>
+					<br>
+
+					<p dir="ltr"><i>"Department Releases New Guidance on Protecting Student Privacy While Using Online Educational Services." U.S. Department of Education. N.p., n.d. Web. 26 May 2014. &lt;<a href="http://www.ed.gov/news/press-releases/department-releases-new-guidance-protecting-student-privacy-while-using-online-e">http://www.ed.gov/news/press-releases/department-releases-new-guidance-protecting-student-privacy-while-using-online-e</a>&gt;.</i></p>
+					<p dir="ltr">This page includes the official press release for the Department of Education's Privacy Technical Assistance Center (PTAC)'s guidance to “help school systems and educators interpret and understand the major laws and best practices protecting student privacy while using online educational services”. This press release provides a very useful summary of the guidance and highlights its key intentions. In fact, it's largely more useful to us than the guidance itself, because we are less concerned with the minute details, which are geared to educational institutions that can use the document to direct their implementation.</p>
+					<br>
+
+					<p dir="ltr"><i>"Family Educational Rights and Privacy Act (FERPA)." U.S. Department of Education. N.p., n.d. Web. 26 May 2014. &lt;<a href="http://www.ed.gov/policy/gen/guid/fpco/ferpa/index.html">http://www.ed.gov/policy/gen/guid/fpco/ferpa/index.html</a>&gt;.</i></p>
+					<p dir="ltr">This page offers a concise summary of the Family Educational Rights and Privacy Act (FERPA), which applies to all schools that receive funds under an applicable program of hte U.S. Department of Education. The overview of the act discusses parents' rights with respect to their children's education records. It also discusses disclosure of records to a variety of other parties, including school officials, schools to which a student is transferring, and parties in connection with financial aid to the student. However, this source raises nearly as many questions as it answers; much of the law's phrasing, including the requirement that school officials have "legitimate educational interest", leaves much up for interpretation by the educational institutions themselves.</p>
+					&nbsp;
+
+					<p dir="ltr"></i>Torpey, Alex. "Bill Aims to Prohibit Calif. Colleges from Helping with NSA Data Collection." The Daily Bruin. The Daily Bruin, 9 Jan. 2014. Web. 27 May 2014. &lt;<a href="http://dailybruin.com/2014/01/09/bill-aims-to-prohibit-calif-colleges-from-helping-with-nsa-data-collection/">http://dailybruin.com/2014/01/09/bill-aims-to-prohibit-calif-colleges-from-helping-with-nsa-data-collection/</a>&gt;.</i></p>
+					<p dir="ltr">In January, California State Senators introduced a bill that would bar public universities in California from conducting research for the federal government that would allow them to collect electronic information without a warrant. The senators who proposed the bill hoped that it would “minimize California's role in facilitating warrantless seizures of data by federal agencies.” The bill was drafted following the surge of backlash against the National Security Agency that was triggered by Edward Snowden's leaking of classified information showing the extent of the NSA's spying.</p>
+					<p dir="ltr">This article shows that there is already a dialogue being conducted surrounding universities and the roles they play in federal conduct that may infringe upon the privacy rights of domestic and international citizens.</p>
+					&nbsp;
+
+					<p dir="ltr"><i>Suebsaeng, Asawin. "What Happens in the University of Maryland NSA Facility Where Edward Snowden Worked?" Mother Jones. Mother Jones and the Foundation for National Progress, 12 June 2013. Web. 27 May 2014. &lt;<a href="http://www.motherjones.com/mojo/2013/06/university-maryland-edward-snowden-nsa">http://www.motherjones.com/mojo/2013/06/university-maryland-edward-snowden-nsa</a>&gt;</i></p>
+					<p dir="ltr">On or somewhere near the University of Maryland stands a covert NSA Facility, which was where Edward Snowden had his first job with the agency. The University's relationship with the organization doesn't stop there - numerous research institutions on campus, including the Center for Advanced Study of Language (CASL), are linked to the NSA and conduct research for the organization. Following the revelations surrounding the NSA caused by Edward Snowden's leaks, many have questioned the role that these research institutions play in NSA domestic and electronic surveillance, spurred on by knowledge that the research being conducted includes research into spycraft technology.</p>
+					&nbsp;
+
+					<p dir="ltr"><i>Sullivan, Bob. "Govt. Agencies, Colleges Demand Applicants' Facebook Passwords - NBC News." NBCNews.com. NBC News, 6 Mar. 2012. Web. 27 May 2014. &lt;<a href="http://www.nbcnews.com/business/consumer/govt-agencies-colleges-demand-applicants-facebook-passwords-f328791">http://www.nbcnews.com/business/consumer/govt-agencies-colleges-demand-applicants-facebook-passwords-f328791</a>&gt;.</i></p>
+					<p dir="ltr">Privacy concerns have been raised concerning colleges throughout the nation requiring student athletes to “friend” coaches or administrators on facebook and other social media sites. Desiring access to the “friends-only” posts that student athletes share, schools requiring that student athletes give coaches access to their social media accounts has come under scrutiny by many who claim that these requirements violate the first amendment rights of student athletes. The issues raised by this article clearly align with privacy concerns of college students and the topics that we are researching.</p>
+					&nbsp;
+
+					<p dir="ltr"><i>The Stanford Student Computer And Network Privacy Project. "A Study of Student Privacy. Issues at Stanford University." Communications of the ACM 45.3 (2002): n. pag. Print.</i></p>
+					<p dir="ltr">Discusses the state of policy privacy at Stanford and student awareness of what their privacy rights as students are. The study walks through the main privacy laws that protect students' rights, such as Family Education Rights and Privacy Act, on campus and what Stanford's specific policies are in implementing the requirements of these laws. It ends with recommendations for improving the state of privacy policy at Stanford, specifically recommending more effort to improve student awareness of what policies are in place to protect them.</p>
+				</div>
+			</div>
+			<h4>The team</h4>
+			<p>Our team consisted of Brian Yang, Nick Dupoux, and Devon Zuegel. Feel free to contact any of us for further information about privacy policy at Stanford.</p>
 		</div>
 	</div>
 	
@@ -164,4 +290,3 @@
 	});
 
 </script>
-

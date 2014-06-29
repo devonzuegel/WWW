@@ -16,6 +16,7 @@ function display_company_info() {
       company_header(company_name, name);
       party_breakdown_graph(company_id, company_name);
       recipient_pacs_card(company_id, company_name);
+      top_issues_card(company_id, company_name);
     }
   });
 
@@ -46,7 +47,9 @@ function party_breakdown_graph(company_id, company_name) {
 
 function recipient_pacs_card(company_id, company_name) {
   $.ajax({
-    url: pac_recipients_query(company_id), dataType: 'jsonp', success: function(json) {
+    url: pac_recipients_query(company_id), 
+    dataType: 'jsonp', 
+    success: function(json) {
       if (company_name.length > 0)  {
         var pac_div = document.getElementById("pac_div");
         clear("pac_div");
@@ -61,12 +64,43 @@ function recipient_pacs_card(company_id, company_name) {
 function list_pac_info(pac_div, json) {
 
   var output = '<h3>Pac Contributions</h3><table>';
-  for (var i = 0; i < json.length; i++)   {
+
+  for (var i = 0; i < json.length; i++)
     output += '<tr><td>' + color_block("#eee", i+1) + "</td><td>" + json[i].name + " <div class='num'>($" + json[i].total_amount + ")</div></td></tr>";
-  }
+  
   output += '</table>';
 
   pac_div.innerHTML += output;
+}
+
+function top_issues_card(company_id, company_name) {
+  $.ajax({
+    url: top_issues_query(company_id),
+    dataType: 'jsonp',
+    success: function(json) {
+      var issues_div = document.getElementById('issues_div');
+      clear('issues_div');
+
+      if (isEmpty(json))  pac_div.innerHTML = "Sorry! We can't find data about how much <b>" + company_name + "</b> donated to individual PACs."
+      else {
+        list_top_issues(issues_div, json, company_name);
+      }
+    }
+  });
+}
+
+function list_top_issues(issues_div, json, company_name) {
+  output = '<h3>Top lobbying issues</h3>' +
+           '<p>Issue areas <b>' + company_name + '</b> has hired lobbyists for</p>' +
+           '<table>';
+  for (var i = 0; i < json.length; i+=2) {
+    output += '<tr><td>' + color_block("#eee", i+1) + "</td><td>" + json[i].issue   + "</div></td>";
+    if (json[i+1] != undefined)
+      output += '<td>' + color_block("#eee", i+2) + "</td><td>" + json[i+1].issue + "</div></td></tr>";
+    else      output += '</tr>';
+  }
+  output += '</table>';
+  issues_div.innerHTML = output;
 }
 
 { /* Helper fns specific to party_breakdonwn_graph() */
