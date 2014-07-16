@@ -7,6 +7,7 @@
     <!-- Styles -->
     <link href="./bootstrap/css/bootstrap.css" rel="stylesheet"/>
     <link href="./assets/css/bootplus.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/paper-trail.css" />
     <style> body { padding-top: 60px; } /* make the container go to btm of topbar */ </style>
     <!-- <link href="./assets/css/bootplus-responsive.css" rel="stylesheet"> -->
 
@@ -28,35 +29,98 @@
   	
 
   	<div class='container'>
+        <div id="inputs" class='hero-unit' style="text-align:center"><form name="inputs">
+          <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
+          <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
+          
+          <script type="text/javascript">
+            var elem = document.getElementById("input_table_id");
 
-			<div class='col-sm-6'>
-				<div class="card">
-					<h3 class="card-heading simple">Simple News Card</h3>
-					<div class="card-body">
-						Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-					</div>
-				</div>
-				<div class="card">
-					<h3 class="card-heading simple">Simple News Card</h3>
-					<div class="card-body">
-						Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-					</div>
-				</div>
+            elem.onkeydown=function(e){
+              if(e.keyCode==13) {
+                e.preventDefault();
+                document.getElementById("btn").click();
+              }
+            }        
+          </script>
+        </form></div>
+
+			<div class='col-sm-5'>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
 			</div>
 
-			<div class='col-sm-6'>
-				<div class="card">
-					<h3 class="card-heading simple">Simple News Card</h3>
-					<div class="card-body">
-						Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-					</div>
-				</div>
-				<div class="card">
-					<h3 class="card-heading simple">Simple News Card</h3>
-					<div class="card-body">
-						Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-					</div>
-				</div>
+			<div class='col-sm-7'>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Before downloading, be sure to have a code editor (we recommend Sublime Text 2) and some working knowledge of HTML and CSS. We won't walk through the source files here, but they are available for download. We'll focus on getting started with the compiled Bootplus files.
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-heading simple">Simple News Card</h3>
+                    <div class="card-body">
+                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
+                    </div>
+                </div>
 			</div>
 
 		</div>
@@ -79,5 +143,10 @@
     <script src="./bootstrap/js/jquery.js"></script>
     <script src="./bootstrap/js/jquery-ui.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="javascripts/display_company_info.js"></script>
+    <script src="javascripts/database_query_fns.js"></script>
+    <script src="javascripts/Chart.js"></script>
+
   </body>
 </html>

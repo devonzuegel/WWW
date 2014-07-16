@@ -3839,6 +3839,7 @@ input[type="submit"].btn.btn-mini {
 .navbar {
   *position: relative;
   *z-index: 2;
+  border-bottom: 1px solid #e5e5e5 !important;
   margin-bottom: 20px;
   overflow: visible;
 }
@@ -5592,7 +5593,7 @@ a.badge:focus {
 .carousel-caption p {
   margin-bottom: 0;
 }
-
+/*
 .hero-unit {
   padding: 60px;
   margin-bottom: 30px;
@@ -5616,7 +5617,7 @@ a.badge:focus {
 
 .hero-unit li {
   line-height: 30px;
-}
+}*/
 
 .pull-right {
   float: right;
@@ -6607,7 +6608,7 @@ input.search-query {
 
 .accordion-group {
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
   color: #666;
   background-color: #ffffff;
@@ -6628,7 +6629,7 @@ input.search-query {
 .card {
   /*padding-top: 20px;*/
   /*margin: 10px 0 20px 0;*/
-  margin-top: 8px;
+  margin-top: 12px;
   background-color: #ffffff;
   border: 1px solid #d8d8d8;
   border-top-width: 0;
