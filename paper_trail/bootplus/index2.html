@@ -29,7 +29,7 @@
   	
 
   	<div class='container'>
-        <div id="inputs" class='hero-unit' style="text-align:center"><form name="inputs">
+        <div id="inputs" style="text-align:center"><form name="inputs">
           <input type="text" placeholder="Company name" name="input_table" id="input_table_id"></input>
           <input class="button" type="button" id="btn" value="" onclick="display_company_info();"></input>
           
@@ -44,86 +44,40 @@
             }        
           </script>
         </form></div>
-
+        <div id='company_info'>
+            <div class='col-sm-12 company_hdr' id="company_hdr"></div>
 			<div class='col-sm-5'>
                 <div class="card">
                     <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
+                    <div class="card-body" id="party_breakdown">
                         Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
                     </div>
                 </div>
                 <div class="card">
                     <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
+                    <div class="card-body" id="issues_div">
                         Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
                     </div>
                 </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-			</div>
+            </div>
 
 			<div class='col-sm-7'>
                 <div class="card">
                     <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
+                    <div class="card-body" id="logo_div" style='text-align:center'>
                         Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
                     </div>
                 </div>
                 <div class="card">
                     <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Before downloading, be sure to have a code editor (we recommend Sublime Text 2) and some working knowledge of HTML and CSS. We won't walk through the source files here, but they are available for download. We'll focus on getting started with the compiled Bootplus files.
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
-                        Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-heading simple">Simple News Card</h3>
-                    <div class="card-body">
+                    <div class="card-body" id="pac_div">
                         Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document
                     </div>
                 </div>
 			</div>
+        </div>
 
-		</div>
+    </div>
 
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap-transition.js"></script>
